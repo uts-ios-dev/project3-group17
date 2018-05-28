@@ -14,6 +14,8 @@ public class MainScene: SKScene {
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
+    var players : [CharacterComponent] = []
+    
     private var lastUpdateTime : TimeInterval = 0
     
     override public func sceneDidLoad() {
@@ -22,7 +24,15 @@ public class MainScene: SKScene {
         
     }
     
+    private func loadPlayers()
+    {
+        
+    }
     
+    public func addPlayer (player : CharacterComponent)
+    {
+        
+    }
     
     override public func update(_ currentTime: TimeInterval) {
         if (self.lastUpdateTime == 0) {

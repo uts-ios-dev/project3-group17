@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8A02214920BAF77700569943 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A02214820BAF77700569943 /* MainScene.swift */; };
+		8A29DB2D20BC22230033F93F /* CharacterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29DB2C20BC22230033F93F /* CharacterEntity.swift */; };
 		8ADFB46420BAE01D00902571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADFB46320BAE01D00902571 /* AppDelegate.swift */; };
 		8ADFB46620BAE01D00902571 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB46520BAE01D00902571 /* GameScene.sks */; };
 		8ADFB46820BAE01D00902571 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB46720BAE01D00902571 /* Actions.sks */; };
@@ -22,7 +23,7 @@
 		8ADFB4A020BAE79B00902571 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB49E20BAE79B00902571 /* TileSet.sks */; };
 		8ADFB4A120BAE79B00902571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB49F20BAE79B00902571 /* Assets.xcassets */; };
 		F3FB506520BBCCDC00BD0F68 /* Characters.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3FB506420BBCCDC00BD0F68 /* Characters.xcassets */; };
-		F3FB506B20BBD57300BD0F68 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB506A20BBD57300BD0F68 /* Character.swift */; };
+		F3FB506B20BBD57300BD0F68 /* CharacterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB506A20BBD57300BD0F68 /* CharacterComponent.swift */; };
 		F3FB506D20BBD78500BD0F68 /* CharacterAnimationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB506C20BBD78500BD0F68 /* CharacterAnimationsManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		8A02214820BAF77700569943 /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
+		8A29DB2C20BC22230033F93F /* CharacterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEntity.swift; sourceTree = "<group>"; };
 		8ADFB46020BAE01D00902571 /* BubbleFighter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleFighter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ADFB46320BAE01D00902571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ADFB46520BAE01D00902571 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -65,7 +67,7 @@
 		8ADFB49E20BAE79B00902571 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		8ADFB49F20BAE79B00902571 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3FB506420BBCCDC00BD0F68 /* Characters.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Characters.xcassets; sourceTree = "<group>"; };
-		F3FB506A20BBD57300BD0F68 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		F3FB506A20BBD57300BD0F68 /* CharacterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterComponent.swift; sourceTree = "<group>"; };
 		F3FB506C20BBD78500BD0F68 /* CharacterAnimationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAnimationsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A29DB2A20BC21FE0033F93F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F3FB506A20BBD57300BD0F68 /* CharacterComponent.swift */,
+				F3FB506C20BBD78500BD0F68 /* CharacterAnimationsManager.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8A29DB2B20BC22070033F93F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				8A29DB2C20BC22230033F93F /* CharacterEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		8ADFB45720BAE01D00902571 = {
 			isa = PBXGroup;
 			children = (
@@ -180,25 +199,17 @@
 		F3A1C3C720BBB895002DE8A2 /* Res */ = {
 			isa = PBXGroup;
 			children = (
-				F3FB506620BBCF9000BD0F68 /* Animations */,
 				8ADFB49D20BAE73F00902571 /* TileSets */,
 				F3FB506420BBCCDC00BD0F68 /* Characters.xcassets */,
 			);
 			path = Res;
 			sourceTree = "<group>";
 		};
-		F3FB506620BBCF9000BD0F68 /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Animations;
-			sourceTree = "<group>";
-		};
 		F3FB506920BBD55B00BD0F68 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F3FB506A20BBD57300BD0F68 /* Character.swift */,
-				F3FB506C20BBD78500BD0F68 /* CharacterAnimationsManager.swift */,
+				8A29DB2B20BC22070033F93F /* Entities */,
+				8A29DB2A20BC21FE0033F93F /* Components */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -342,8 +353,9 @@
 			files = (
 				F3FB506D20BBD78500BD0F68 /* CharacterAnimationsManager.swift in Sources */,
 				8ADFB46A20BAE01D00902571 /* GameScene.swift in Sources */,
+				8A29DB2D20BC22230033F93F /* CharacterEntity.swift in Sources */,
 				8A02214920BAF77700569943 /* MainScene.swift in Sources */,
-				F3FB506B20BBD57300BD0F68 /* Character.swift in Sources */,
+				F3FB506B20BBD57300BD0F68 /* CharacterComponent.swift in Sources */,
 				8ADFB46C20BAE01D00902571 /* GameViewController.swift in Sources */,
 				8ADFB46420BAE01D00902571 /* AppDelegate.swift in Sources */,
 			);
