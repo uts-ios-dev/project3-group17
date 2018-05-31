@@ -13,20 +13,19 @@ import GameplayKit
 public class CharacterEntity : GKEntity {
     
     public let characterComponent = CharacterComponent()
-    public let sknodeComponent = GKSKNodeComponent(node: SKSpriteNode())
+    public let skNodeComponent = GKSKNodeComponent(node: SKSpriteNode())
     
     public var node : SKSpriteNode {
-        return self.sknodeComponent.node as! SKSpriteNode
+        return self.skNodeComponent.node as! SKSpriteNode
     }
     
     override init() {
         super.init()
         
         self.addComponent(self.characterComponent)
-        self.addComponent(self.sknodeComponent)
-        
-        
+        self.addComponent(self.skNodeComponent)
     }
+    
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

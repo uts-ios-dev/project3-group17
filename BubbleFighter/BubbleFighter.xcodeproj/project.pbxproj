@@ -22,6 +22,7 @@
 		8ADFB49C20BAE1FB00902571 /* TestScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB49B20BAE1FB00902571 /* TestScene.sks */; };
 		8ADFB4A020BAE79B00902571 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB49E20BAE79B00902571 /* TileSet.sks */; };
 		8ADFB4A120BAE79B00902571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB49F20BAE79B00902571 /* Assets.xcassets */; };
+		F3CCC61420BFC0CA00A3C36A /* CharacterStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CCC61320BFC0CA00A3C36A /* CharacterStates.swift */; };
 		F3FB506520BBCCDC00BD0F68 /* Characters.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3FB506420BBCCDC00BD0F68 /* Characters.xcassets */; };
 		F3FB506B20BBD57300BD0F68 /* CharacterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB506A20BBD57300BD0F68 /* CharacterComponent.swift */; };
 		F3FB506D20BBD78500BD0F68 /* CharacterAnimationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB506C20BBD78500BD0F68 /* CharacterAnimationsManager.swift */; };
@@ -66,6 +67,7 @@
 		8ADFB49B20BAE1FB00902571 /* TestScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TestScene.sks; sourceTree = "<group>"; };
 		8ADFB49E20BAE79B00902571 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		8ADFB49F20BAE79B00902571 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F3CCC61320BFC0CA00A3C36A /* CharacterStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStates.swift; sourceTree = "<group>"; };
 		F3FB506420BBCCDC00BD0F68 /* Characters.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Characters.xcassets; sourceTree = "<group>"; };
 		F3FB506A20BBD57300BD0F68 /* CharacterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterComponent.swift; sourceTree = "<group>"; };
 		F3FB506C20BBD78500BD0F68 /* CharacterAnimationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAnimationsManager.swift; sourceTree = "<group>"; };
@@ -205,9 +207,18 @@
 			path = Res;
 			sourceTree = "<group>";
 		};
+		F3CCC61220BFC07200A3C36A /* States */ = {
+			isa = PBXGroup;
+			children = (
+				F3CCC61320BFC0CA00A3C36A /* CharacterStates.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
 		F3FB506920BBD55B00BD0F68 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F3CCC61220BFC07200A3C36A /* States */,
 				8A29DB2B20BC22070033F93F /* Entities */,
 				8A29DB2A20BC21FE0033F93F /* Components */,
 			);
@@ -352,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3FB506D20BBD78500BD0F68 /* CharacterAnimationsManager.swift in Sources */,
+				F3CCC61420BFC0CA00A3C36A /* CharacterStates.swift in Sources */,
 				8ADFB46A20BAE01D00902571 /* GameScene.swift in Sources */,
 				8A29DB2D20BC22230033F93F /* CharacterEntity.swift in Sources */,
 				8A02214920BAF77700569943 /* MainScene.swift in Sources */,
