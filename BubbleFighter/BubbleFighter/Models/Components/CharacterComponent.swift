@@ -17,6 +17,4 @@ public class CharacterComponent : GKComponent {
     public func setTextureAltas(_ altasName : String) {
         self.animationManager.load(altasName)
     }
-    
-
 }

@@ -22,6 +22,13 @@ public class MainScene: SKScene {
         
         self.lastUpdateTime = 0
         
+        self.loadPlayers()
+        
+    }
+    
+    private func loadGameControls()
+    {
+        
     }
     
     private func loadPlayers()
