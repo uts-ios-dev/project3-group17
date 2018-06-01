@@ -12,9 +12,31 @@ import GameplayKit
 
 public class CharacterComponent : GKComponent {
     
-    let animationManager : CharacterAnimationManager = CharacterAnimationManager()
+    private let _animationManager : CharacterAnimationManager = CharacterAnimationManager()
+    private var actionStateMachine : GKStateMachine!
+    
+    private var _direction = Directions.down
+    
+    public var direction : Directions { return self._direction }
+    
+    public override init() {
+        super.init()
+        
+        
+        
+        self.actionStateMachine = GKStateMachine();
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     public func setTextureAltas(_ altasName : String) {
-        self.animationManager.load(altasName)
+        self._animationManager.load(altasName)
+    }
+    
+    public func loadActionStateMachine() -> [CharacterState]
+    {
+        return [Walk(self), Idle(self)]
     }
 }

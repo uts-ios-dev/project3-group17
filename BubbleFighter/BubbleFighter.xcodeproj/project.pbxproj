@@ -23,7 +23,12 @@
 		8ADFB4A020BAE79B00902571 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB49E20BAE79B00902571 /* TileSet.sks */; };
 		8ADFB4A120BAE79B00902571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB49F20BAE79B00902571 /* Assets.xcassets */; };
 		8AE609D720C03C160043484D /* GameControlEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE609D620C03C160043484D /* GameControlEntity.swift */; };
-		F3CCC61420BFC0CA00A3C36A /* CharacterStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CCC61320BFC0CA00A3C36A /* CharacterStates.swift */; };
+		F34A144C20C137D000FD3E82 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A144B20C137D000FD3E82 /* Walk.swift */; };
+		F34A144E20C1393B00FD3E82 /* Idle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A144D20C1393B00FD3E82 /* Idle.swift */; };
+		F34A145020C13A1B00FD3E82 /* Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A144F20C13A1B00FD3E82 /* Directions.swift */; };
+		F34A145220C13D4600FD3E82 /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A145120C13D4600FD3E82 /* PlayerEntity.swift */; };
+		F34A145420C13DFE00FD3E82 /* PlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A145320C13DFE00FD3E82 /* PlayerComponent.swift */; };
+		F3CCC61420BFC0CA00A3C36A /* CharacterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CCC61320BFC0CA00A3C36A /* CharacterState.swift */; };
 		F3FB506520BBCCDC00BD0F68 /* Characters.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3FB506420BBCCDC00BD0F68 /* Characters.xcassets */; };
 		F3FB506B20BBD57300BD0F68 /* CharacterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB506A20BBD57300BD0F68 /* CharacterComponent.swift */; };
 		F3FB506D20BBD78500BD0F68 /* CharacterAnimationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB506C20BBD78500BD0F68 /* CharacterAnimationsManager.swift */; };
@@ -69,7 +74,12 @@
 		8ADFB49E20BAE79B00902571 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		8ADFB49F20BAE79B00902571 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AE609D620C03C160043484D /* GameControlEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControlEntity.swift; sourceTree = "<group>"; };
-		F3CCC61320BFC0CA00A3C36A /* CharacterStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStates.swift; sourceTree = "<group>"; };
+		F34A144B20C137D000FD3E82 /* Walk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walk.swift; sourceTree = "<group>"; };
+		F34A144D20C1393B00FD3E82 /* Idle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Idle.swift; sourceTree = "<group>"; };
+		F34A144F20C13A1B00FD3E82 /* Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Directions.swift; sourceTree = "<group>"; };
+		F34A145120C13D4600FD3E82 /* PlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
+		F34A145320C13DFE00FD3E82 /* PlayerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerComponent.swift; sourceTree = "<group>"; };
+		F3CCC61320BFC0CA00A3C36A /* CharacterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterState.swift; sourceTree = "<group>"; };
 		F3FB506420BBCCDC00BD0F68 /* Characters.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Characters.xcassets; sourceTree = "<group>"; };
 		F3FB506A20BBD57300BD0F68 /* CharacterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterComponent.swift; sourceTree = "<group>"; };
 		F3FB506C20BBD78500BD0F68 /* CharacterAnimationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAnimationsManager.swift; sourceTree = "<group>"; };
@@ -105,6 +115,7 @@
 			children = (
 				F3FB506A20BBD57300BD0F68 /* CharacterComponent.swift */,
 				F3FB506C20BBD78500BD0F68 /* CharacterAnimationsManager.swift */,
+				F34A145320C13DFE00FD3E82 /* PlayerComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -114,6 +125,7 @@
 			children = (
 				8A29DB2C20BC22230033F93F /* CharacterEntity.swift */,
 				8AE609D620C03C160043484D /* GameControlEntity.swift */,
+				F34A145120C13D4600FD3E82 /* PlayerEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -201,6 +213,15 @@
 			path = TileSets;
 			sourceTree = "<group>";
 		};
+		F34A144A20C137A800FD3E82 /* CharacterStates */ = {
+			isa = PBXGroup;
+			children = (
+				F34A144B20C137D000FD3E82 /* Walk.swift */,
+				F34A144D20C1393B00FD3E82 /* Idle.swift */,
+			);
+			path = CharacterStates;
+			sourceTree = "<group>";
+		};
 		F3A1C3C720BBB895002DE8A2 /* Res */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,7 +234,8 @@
 		F3CCC61220BFC07200A3C36A /* States */ = {
 			isa = PBXGroup;
 			children = (
-				F3CCC61320BFC0CA00A3C36A /* CharacterStates.swift */,
+				F34A144A20C137A800FD3E82 /* CharacterStates */,
+				F3CCC61320BFC0CA00A3C36A /* CharacterState.swift */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -224,6 +246,7 @@
 				F3CCC61220BFC07200A3C36A /* States */,
 				8A29DB2B20BC22070033F93F /* Entities */,
 				8A29DB2A20BC21FE0033F93F /* Components */,
+				F34A144F20C13A1B00FD3E82 /* Directions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -366,12 +389,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3FB506D20BBD78500BD0F68 /* CharacterAnimationsManager.swift in Sources */,
-				F3CCC61420BFC0CA00A3C36A /* CharacterStates.swift in Sources */,
+				F3CCC61420BFC0CA00A3C36A /* CharacterState.swift in Sources */,
 				8ADFB46A20BAE01D00902571 /* GameScene.swift in Sources */,
 				8A29DB2D20BC22230033F93F /* CharacterEntity.swift in Sources */,
+				F34A145220C13D4600FD3E82 /* PlayerEntity.swift in Sources */,
 				8AE609D720C03C160043484D /* GameControlEntity.swift in Sources */,
+				F34A144C20C137D000FD3E82 /* Walk.swift in Sources */,
 				8A02214920BAF77700569943 /* MainScene.swift in Sources */,
+				F34A145020C13A1B00FD3E82 /* Directions.swift in Sources */,
 				F3FB506B20BBD57300BD0F68 /* CharacterComponent.swift in Sources */,
+				F34A145420C13DFE00FD3E82 /* PlayerComponent.swift in Sources */,
+				F34A144E20C1393B00FD3E82 /* Idle.swift in Sources */,
 				8ADFB46C20BAE01D00902571 /* GameViewController.swift in Sources */,
 				8ADFB46420BAE01D00902571 /* AppDelegate.swift in Sources */,
 			);

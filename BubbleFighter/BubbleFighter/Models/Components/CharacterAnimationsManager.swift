@@ -14,7 +14,7 @@ public class CharacterAnimationManager {
     //2 * 8 array
     var animations : [[[SKTexture]]] = []
     
-    let partOrder0 = ["front", "back", "left", "right"]
+    let partOrder0 = ["up", "down", "left", "right"]
     let partOrder1 = ["walking", "idle"]
     
     public func load (_ altasName : String) {
