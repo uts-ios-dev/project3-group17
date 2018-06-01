@@ -9,21 +9,11 @@
 import SpriteKit
 import GameplayKit
 
-public class MainScene: SKScene {
+public class MainScene: BaseScene {
 
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
-    
-    var players : [CharacterComponent] = []
-    
-    private var lastUpdateTime : TimeInterval = 0
-    
     override public func sceneDidLoad() {
         
-        self.lastUpdateTime = 0
-        
-        self.loadPlayers()
-        
+        super.sceneDidLoad()
     }
     
     private func loadGameControls()
@@ -36,23 +26,8 @@ public class MainScene: SKScene {
         
     }
     
-    public func addPlayer (player : CharacterComponent)
-    {
-        
-    }
-    
-    override public func update(_ currentTime: TimeInterval) {
-        if (self.lastUpdateTime == 0) {
-            self.lastUpdateTime = currentTime
-        }
-
-        let dt = currentTime - self.lastUpdateTime
-        
-        for entity in self.entities {
-            entity.update(deltaTime: dt)
-        }
-        
-        self.lastUpdateTime = currentTime
+    public override func update(_ currentTime: TimeInterval) {
+        super.update(currentTime)
     }
     
 }
