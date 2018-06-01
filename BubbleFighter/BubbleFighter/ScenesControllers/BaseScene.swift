@@ -26,15 +26,15 @@ public class BaseScene: SKScene {
     {
         entities.append(entity)
         
-        if let spriteNode = entity.component(ofType: GKSKNodeComponent.self)?.node {
-            self.addChild(spriteNode)
+        if let node = entity.component(ofType: GKSKNodeComponent.self)?.node {
+            self.addChild(node)
         }
     }
     
     public func removeEnitty(_ entity: GKEntity)
     {
-        if let spriteNode = entity.component(ofType: GKSKNodeComponent.self)?.node {
-            spriteNode.removeFromParent()
+        if let node = entity.component(ofType: GKSKNodeComponent.self)?.node {
+            node.removeFromParent()
         }
         
         if let index = entities.index(of: entity)
