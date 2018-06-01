@@ -12,8 +12,8 @@ import GameplayKit
 
 public class BaseScene: SKScene {
 
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
+    public var entities = [GKEntity]()
+    public var graphs = [String : GKGraph]()
     
     private var lastUpdateTime : TimeInterval = 0
     
