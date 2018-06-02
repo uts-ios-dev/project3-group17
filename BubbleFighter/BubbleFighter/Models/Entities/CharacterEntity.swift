@@ -26,6 +26,12 @@ public class CharacterEntity : GKEntity {
         self.addComponent(self.skNodeComponent)
     }
     
+    public override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds);
+        
+        
+    }
+    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

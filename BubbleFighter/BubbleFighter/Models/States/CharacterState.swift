@@ -15,6 +15,8 @@ public class CharacterState: GKState {
     
     public var direction : Directions { return character.direction };
     
+    public var lastDirection : Directions { return character.lastDirection};
+    
     convenience init(_ character : CharacterComponent) {
         self.init();
         

@@ -22,6 +22,8 @@ public class Idle: CharacterState {
         
         let animations = character.animationManager.get(1);
         
+        character.node.texture = animations[0];
+        
         character.node.run(SKAction.repeatForever(SKAction.animate(with: animations, timePerFrame: 0.1)));
     }
 

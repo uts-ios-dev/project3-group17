@@ -43,7 +43,11 @@ public class GameViewController: UIViewController {
             if let sceneNode = scene.rootNode as! MainScene? {
                 
                 // Copy gameplay related content over to the scene
-                sceneNode.entities = scene.entities
+                
+                for entity in scene.entities {
+                    sceneNode.entities.append(entity)
+                }
+                
                 sceneNode.graphs = scene.graphs
                 
                 // Set the scale mode to scale to fit the window

@@ -52,6 +52,10 @@ public class BaseScene: SKScene {
         
         for entity in self.entities {
             entity.update(deltaTime: dt)
+            
+            for component in entity.components {
+                component.update(deltaTime: dt)
+            }
         }
         
         self.lastUpdateTime = currentTime
