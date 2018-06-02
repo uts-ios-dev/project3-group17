@@ -15,6 +15,7 @@
 		8A6873F320C26E89006B8F91 /* Bubbles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A6873F220C26E89006B8F91 /* Bubbles.xcassets */; };
 		8A6873F520C26FD8006B8F91 /* BubbleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6873F420C26FD8006B8F91 /* BubbleEntity.swift */; };
 		8A6873F720C27C4B006B8F91 /* BubbleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6873F620C27C4B006B8F91 /* BubbleComponent.swift */; };
+		8A6873F920C2A50A006B8F91 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6873F820C2A50A006B8F91 /* Configs.swift */; };
 		8ADFB46420BAE01D00902571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADFB46320BAE01D00902571 /* AppDelegate.swift */; };
 		8ADFB46620BAE01D00902571 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB46520BAE01D00902571 /* GameScene.sks */; };
 		8ADFB46820BAE01D00902571 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB46720BAE01D00902571 /* Actions.sks */; };
@@ -66,6 +67,7 @@
 		8A6873F220C26E89006B8F91 /* Bubbles.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Bubbles.xcassets; sourceTree = "<group>"; };
 		8A6873F420C26FD8006B8F91 /* BubbleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleEntity.swift; sourceTree = "<group>"; };
 		8A6873F620C27C4B006B8F91 /* BubbleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleComponent.swift; sourceTree = "<group>"; };
+		8A6873F820C2A50A006B8F91 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		8ADFB46020BAE01D00902571 /* BubbleFighter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleFighter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ADFB46320BAE01D00902571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ADFB46520BAE01D00902571 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -151,6 +153,13 @@
 				8A6873EE20C1A1F4006B8F91 /* InputKey.swift */,
 			);
 			path = Inputs;
+			sourceTree = "<group>";
+		};
+		8A6873FE20C2AA07006B8F91 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Particles;
 			sourceTree = "<group>";
 		};
 		8ADFB45720BAE01D00902571 = {
@@ -249,6 +258,7 @@
 		F3A1C3C720BBB895002DE8A2 /* Res */ = {
 			isa = PBXGroup;
 			children = (
+				8A6873FE20C2AA07006B8F91 /* Particles */,
 				8ADFB49D20BAE73F00902571 /* TileSets */,
 				F3FB506420BBCCDC00BD0F68 /* Characters.xcassets */,
 				8A6873F220C26E89006B8F91 /* Bubbles.xcassets */,
@@ -273,6 +283,7 @@
 				8A29DB2B20BC22070033F93F /* Entities */,
 				8A29DB2A20BC21FE0033F93F /* Components */,
 				F34A144F20C13A1B00FD3E82 /* Directions.swift */,
+				8A6873F820C2A50A006B8F91 /* Configs.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -432,6 +443,7 @@
 				F34A144E20C1393B00FD3E82 /* Idle.swift in Sources */,
 				8A6873F520C26FD8006B8F91 /* BubbleEntity.swift in Sources */,
 				8ADFB46C20BAE01D00902571 /* GameViewController.swift in Sources */,
+				8A6873F920C2A50A006B8F91 /* Configs.swift in Sources */,
 				8A6873EF20C1A1F4006B8F91 /* InputKey.swift in Sources */,
 				8ADFB46420BAE01D00902571 /* AppDelegate.swift in Sources */,
 			);

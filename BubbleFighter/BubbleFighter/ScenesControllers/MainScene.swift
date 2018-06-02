@@ -28,8 +28,8 @@ public class MainScene: BaseScene {
     {
         mainPlayer = PlayerEntity();
         mainPlayer.characterComponent.setTextureAltas("t");
-        mainPlayer.node.size = CGSize(width: 24, height: 32);
-        mainPlayer.node.position = CGPoint(x: 50, y: 0);
+        mainPlayer.node.size = CGSize(width: Double(Configs.blockSize), height:Double(Configs.blockSize) * 1.5);
+        mainPlayer.node.position = CGPoint(x: -50, y: 0);
         mainPlayer.node.anchorPoint = CGPoint(x: 0.5, y: 0)
         
         addEntity(mainPlayer);

@@ -24,6 +24,9 @@ public class CharacterEntity : GKEntity {
         
         self.addComponent(self.characterComponent)
         self.addComponent(self.skNodeComponent)
+        
+        self.node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: Configs.blockSize / 2, height: Configs.blockSize))
+        self.node.physicsBody?.affectedByGravity = false
     }
     
     public override func update(deltaTime seconds: TimeInterval) {
