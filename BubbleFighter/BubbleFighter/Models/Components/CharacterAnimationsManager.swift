@@ -11,11 +11,16 @@ import SpriteKit
 
 public class CharacterAnimationManager {
 
+    private var character : CharacterComponent!;
     //2 * 8 array
     var animations : [[[SKTexture]]] = []
     
     let partOrder0 = ["up", "down", "left", "right"]
     let partOrder1 = ["walking", "idle"]
+    
+    public init (_ character : CharacterComponent) {
+        self.character = character;
+    }
     
     public func load (_ altasName : String) {
         
@@ -38,4 +43,18 @@ public class CharacterAnimationManager {
             animations[partIndex0!][partindex1!].append(texture);
         }
     }
+    
+    public func get (animationName : String) -> [SKTexture]? {
+        if let index = partOrder1.index(of: animationName) {
+            return self.get(index);
+        }
+        
+        return nil;
+    }
+    
+    public func get (_ animationIndex : Int) -> [SKTexture] {
+        return animations[character.direction.rawValue][animationIndex];
+    }
+    
+    
 }

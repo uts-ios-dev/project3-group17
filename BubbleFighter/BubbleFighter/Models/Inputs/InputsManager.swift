@@ -9,7 +9,9 @@
 import Foundation
 
 public class InputManager {
-
+    
+    private static var inputManagerInstance : InputManager?;
+    
     private var _inputs : [InputKey] = [];
     
     public init() {
@@ -45,6 +47,12 @@ public class InputManager {
         return nil;
     }
     
+    public func setKeyState (_ keyName : String, state : InputStates) {
+        if let key = getKey(keyName) {
+            key.state = state;
+        }
+    }
+    
     public func getKeyDown (_ keyName : String) -> Bool {
         if let key = getKey(keyName) {
             return key.state == InputStates.Down;
@@ -71,6 +79,14 @@ public class InputManager {
         }
         
         return false;
+    }
+    
+    public class func getInstance() -> InputManager {
+        if InputManager.inputManagerInstance == nil {
+            InputManager.inputManagerInstance = InputManager();
+        }
+        
+        return InputManager.inputManagerInstance!;
     }
     
 }

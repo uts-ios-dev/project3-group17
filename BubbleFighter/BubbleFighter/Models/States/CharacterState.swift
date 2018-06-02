@@ -11,10 +11,12 @@ import GameplayKit;
 
 public class CharacterState: GKState {
     
-    private var character : CharacterComponent!
+    public var character : CharacterComponent!;
+    
+    public var direction : Directions { return character.direction };
     
     convenience init(_ character : CharacterComponent) {
-        self.init()
+        self.init();
         
         self.character = character;
     }

@@ -22,31 +22,63 @@
                                 <rect key="frame" x="77" y="195" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" image="Up"/>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="BV1-FR-VrT" eventType="touchDown" id="FQg-zg-M0Z"/>
+                                    <action selector="onButtonUpInside:" destination="BV1-FR-VrT" eventType="touchUpInside" id="a8D-um-hIw"/>
+                                    <action selector="onButtonUpOutside:" destination="BV1-FR-VrT" eventType="touchUpOutside" id="IYv-md-YcZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKL-HX-3PT" userLabel="LeftButton">
                                 <rect key="frame" x="21" y="251" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" image="Left"/>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="BV1-FR-VrT" eventType="touchDown" id="U2T-y9-gHG"/>
+                                    <action selector="onButtonUpInside:" destination="BV1-FR-VrT" eventType="touchUpInside" id="GXe-0h-mHG"/>
+                                    <action selector="onButtonUpOutside:" destination="BV1-FR-VrT" eventType="touchUpOutside" id="1os-3z-HTx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc4-d9-nzC" userLabel="DownButton">
                                 <rect key="frame" x="77" y="307" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" image="Down"/>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="BV1-FR-VrT" eventType="touchDown" id="Iye-qK-VJn"/>
+                                    <action selector="onButtonUpInside:" destination="BV1-FR-VrT" eventType="touchUpInside" id="9Uw-Mv-9va"/>
+                                    <action selector="onButtonUpOutside:" destination="BV1-FR-VrT" eventType="touchUpOutside" id="msY-V8-AbF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ir2-u3-qPX" userLabel="RightButton">
                                 <rect key="frame" x="133" y="251" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" image="Right"/>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="BV1-FR-VrT" eventType="touchDown" id="RXC-Ir-azx"/>
+                                    <action selector="onButtonUpInside:" destination="BV1-FR-VrT" eventType="touchUpInside" id="F4v-AV-QYk"/>
+                                    <action selector="onButtonUpOutside:" destination="BV1-FR-VrT" eventType="touchUpOutside" id="VUb-lL-IRv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWd-gm-vsz">
                                 <rect key="frame" x="545" y="243" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <state key="normal" image="Attack"/>
+                                <connections>
+                                    <action selector="onButtonDown:" destination="BV1-FR-VrT" eventType="touchDown" id="5vN-XB-pgm"/>
+                                    <action selector="onButtonUpInside:" destination="BV1-FR-VrT" eventType="touchUpInside" id="4C0-vS-ff6"/>
+                                    <action selector="onButtonUpOutside:" destination="BV1-FR-VrT" eventType="touchUpOutside" id="Vms-IX-J2p"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
+                    <connections>
+                        <outlet property="attackButton" destination="MWd-gm-vsz" id="rVf-Pm-Aow"/>
+                        <outlet property="downButton" destination="bc4-d9-nzC" id="ZVu-MB-djR"/>
+                        <outlet property="leftButton" destination="hKL-HX-3PT" id="rov-8g-zKN"/>
+                        <outlet property="rightButton" destination="Ir2-u3-qPX" id="gEb-KN-ueF"/>
+                        <outlet property="upButton" destination="xME-jU-3AZ" id="LLq-4n-yoB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>

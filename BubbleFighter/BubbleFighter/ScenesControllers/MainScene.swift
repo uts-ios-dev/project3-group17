@@ -11,16 +11,24 @@ import SpriteKit
 import GameplayKit
 
 public class MainScene: BaseScene {
+    
+    private var mainPlayer : PlayerEntity!;
 
     override public func sceneDidLoad() {
         
         super.sceneDidLoad();
         
+        self.loadPlayers();
+        
     }
     
     private func loadPlayers()
     {
+        mainPlayer = PlayerEntity();
+        mainPlayer.characterComponent.setTextureAltas("t");
+        mainPlayer.node.position = CGPoint(x: 0, y: 0);
         
+        addEntity(mainPlayer);
     }
     
     public override func update(_ currentTime: TimeInterval) {

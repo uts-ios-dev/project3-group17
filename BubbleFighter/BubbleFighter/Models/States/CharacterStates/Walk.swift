@@ -8,6 +8,6 @@
 
 import UIKit
 
-class Walk: CharacterState {
+public class Walk: CharacterState {
 
 }
