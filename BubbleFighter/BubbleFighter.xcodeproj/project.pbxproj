@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8A02214920BAF77700569943 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A02214820BAF77700569943 /* MainScene.swift */; };
 		8A29DB2D20BC22230033F93F /* CharacterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29DB2C20BC22230033F93F /* CharacterEntity.swift */; };
+		8A6873EB20C190A8006B8F91 /* InputsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6873EA20C190A8006B8F91 /* InputsManager.swift */; };
+		8A6873ED20C19133006B8F91 /* InputStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6873EC20C19133006B8F91 /* InputStates.swift */; };
+		8A6873EF20C1A1F4006B8F91 /* InputKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6873EE20C1A1F4006B8F91 /* InputKey.swift */; };
 		8ADFB46420BAE01D00902571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADFB46320BAE01D00902571 /* AppDelegate.swift */; };
 		8ADFB46620BAE01D00902571 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB46520BAE01D00902571 /* GameScene.sks */; };
 		8ADFB46820BAE01D00902571 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB46720BAE01D00902571 /* Actions.sks */; };
@@ -55,6 +58,9 @@
 /* Begin PBXFileReference section */
 		8A02214820BAF77700569943 /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		8A29DB2C20BC22230033F93F /* CharacterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEntity.swift; sourceTree = "<group>"; };
+		8A6873EA20C190A8006B8F91 /* InputsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputsManager.swift; sourceTree = "<group>"; };
+		8A6873EC20C19133006B8F91 /* InputStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputStates.swift; sourceTree = "<group>"; };
+		8A6873EE20C1A1F4006B8F91 /* InputKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputKey.swift; sourceTree = "<group>"; };
 		8ADFB46020BAE01D00902571 /* BubbleFighter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleFighter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ADFB46320BAE01D00902571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ADFB46520BAE01D00902571 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -130,6 +136,16 @@
 				F34A145120C13D4600FD3E82 /* PlayerEntity.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		8A6873E920C19090006B8F91 /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				8A6873EA20C190A8006B8F91 /* InputsManager.swift */,
+				8A6873EC20C19133006B8F91 /* InputStates.swift */,
+				8A6873EE20C1A1F4006B8F91 /* InputKey.swift */,
+			);
+			path = Inputs;
 			sourceTree = "<group>";
 		};
 		8ADFB45720BAE01D00902571 = {
@@ -246,6 +262,7 @@
 		F3FB506920BBD55B00BD0F68 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8A6873E920C19090006B8F91 /* Inputs */,
 				F3CCC61220BFC07200A3C36A /* States */,
 				8A29DB2B20BC22070033F93F /* Entities */,
 				8A29DB2A20BC21FE0033F93F /* Components */,
@@ -395,6 +412,7 @@
 				F3CCC61420BFC0CA00A3C36A /* CharacterState.swift in Sources */,
 				8ADFB46A20BAE01D00902571 /* GameScene.swift in Sources */,
 				8A29DB2D20BC22230033F93F /* CharacterEntity.swift in Sources */,
+				8A6873ED20C19133006B8F91 /* InputStates.swift in Sources */,
 				F34A145620C1483100FD3E82 /* BaseScene.swift in Sources */,
 				F34A145220C13D4600FD3E82 /* PlayerEntity.swift in Sources */,
 				8AE609D720C03C160043484D /* GameControlEntity.swift in Sources */,
@@ -403,8 +421,10 @@
 				F34A145020C13A1B00FD3E82 /* Directions.swift in Sources */,
 				F3FB506B20BBD57300BD0F68 /* CharacterComponent.swift in Sources */,
 				F34A145420C13DFE00FD3E82 /* PlayerComponent.swift in Sources */,
+				8A6873EB20C190A8006B8F91 /* InputsManager.swift in Sources */,
 				F34A144E20C1393B00FD3E82 /* Idle.swift in Sources */,
 				8ADFB46C20BAE01D00902571 /* GameViewController.swift in Sources */,
+				8A6873EF20C1A1F4006B8F91 /* InputKey.swift in Sources */,
 				8ADFB46420BAE01D00902571 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

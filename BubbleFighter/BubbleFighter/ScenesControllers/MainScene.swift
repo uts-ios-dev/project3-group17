@@ -14,7 +14,7 @@ public class MainScene: BaseScene {
 
     override public func sceneDidLoad() {
         
-        super.sceneDidLoad()
+        super.sceneDidLoad();
         
     }
     
@@ -24,7 +24,7 @@ public class MainScene: BaseScene {
     }
     
     public override func update(_ currentTime: TimeInterval) {
-        super.update(currentTime)
+        super.update(currentTime);
     }
     
 }

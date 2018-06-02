@@ -17,6 +17,7 @@ public class BaseScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
     
+    
     override public func sceneDidLoad() {
         
         self.lastUpdateTime = 0

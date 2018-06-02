@@ -26,7 +26,6 @@ public class CharacterEntity : GKEntity {
         self.addComponent(self.skNodeComponent)
     }
     
-    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
