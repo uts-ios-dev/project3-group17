@@ -39,5 +39,15 @@ public class PlayerComponent: GKComponent {
             character.actionStateMachine.enter(Idle.self);
         }
         
+        if input.getKeyClick(InputKey.attack) {
+            let bubble = BubbleEntity();
+            bubble.node.zPosition = 5;
+            bubble.node.position = character.node.position;
+            bubble.node.size = CGSize(width: character.node.size.width, height: character.node.size.width);
+            bubble.node.anchorPoint = CGPoint(x: 0.5, y: 0);
+            bubble.bubbleComponent.setTexture("Bubble");
+            
+            (character.node.scene! as! MainScene).addEntity(bubble);
+        }
     }
 }

@@ -13,7 +13,6 @@ import GameplayKit
 public class BubbleComponent: GKComponent {
     
     public var node : SKSpriteNode { return (entity! as! BubbleEntity).node };
-    public static var animationsDict : [String : [SKTexture]] = [:];
     
     public override init() {
         super.init();
@@ -24,25 +23,20 @@ public class BubbleComponent: GKComponent {
     }
     
     public func setTexture(_ altasName : String) {
-        let animations = loadAnimation(altasName);
-        //node.texture = animations[0];
-        self.node.run(SKAction.repeatForever(SKAction.animate(with: animations, timePerFrame: 0.1)));
-    }
-    
-    private func loadAnimation(_ altasName : String) -> [SKTexture] {
-        if BubbleComponent.animationsDict[altasName] == nil {
-            let textures = loadBubbleTextures(altasName);
-            BubbleComponent.animationsDict[altasName] = getAnimation(textures);
-        }
+        let animations = loadBubbleTextures(altasName);
         
-        return BubbleComponent.animationsDict[altasName]!;
+        let scaleAnimations = SKAction.sequence([SKAction.scaleX(to: 0.9, y: 0.75, duration: 0.5),
+                                                 SKAction.scaleX(to: 1.0, y: 1.0, duration: 0.5)]);
+        
+        self.node.texture = animations[0];
+        
+        self.node.run(SKAction.repeatForever(scaleAnimations));
     }
     
     private func loadBubbleTextures (_ altasName : String) -> [SKTexture] {
         
         let altas = SKTextureAtlas(named: altasName);
         var count = 0;
-        
         var textures : [SKTexture] = [];
         
         for _ in altas.textureNames {
@@ -51,21 +45,5 @@ public class BubbleComponent: GKComponent {
         }
         
         return textures;
-    }
-    
-    private func getAnimation(_ textures : [SKTexture]) -> [SKTexture] {
-        let count = textures.count;
-        
-        var results : [SKTexture] = []
-        
-        for texture in textures {
-            results.append(texture);
-        }
-        
-        for i in (1...count - 2).reversed() {
-            results.append(textures[i]);
-        }
-        
-        return results;
     }
 }

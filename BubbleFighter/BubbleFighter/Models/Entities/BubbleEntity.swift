@@ -19,15 +19,13 @@ public class BubbleEntity: GKEntity {
         return self.skNodeComponent.node as! SKSpriteNode
     }
     
-    public init(_ altasName : String) {
+    public override init() {
         super.init();
         
         self.bubbleComponent = BubbleComponent();
         
         addComponent(self.skNodeComponent);
         addComponent(self.bubbleComponent);
-        
-        bubbleComponent.setTexture(altasName);
     }
     
     required public init?(coder aDecoder: NSCoder) {

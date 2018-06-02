@@ -30,6 +30,7 @@ public class MainScene: BaseScene {
         mainPlayer.characterComponent.setTextureAltas("t");
         mainPlayer.node.size = CGSize(width: 24, height: 32);
         mainPlayer.node.position = CGPoint(x: 50, y: 0);
+        mainPlayer.node.anchorPoint = CGPoint(x: 0.5, y: 0)
         
         addEntity(mainPlayer);
     }
@@ -41,15 +42,7 @@ public class MainScene: BaseScene {
         mainCamera.zPosition = 15;
         mainCamera.position = mainPlayer.node.position;
         
-        let inputs = InputManager.getInstance();
         
-        if inputs.getKeyClick(InputKey.attack) {
-            let bubble = BubbleEntity("Bubble");
-            bubble.node.zPosition = 5;
-            bubble.node.position = mainPlayer.node.position;
-            bubble.node.size = CGSize(width: mainPlayer.node.size.width, height: mainPlayer.node.size.width);
-            addEntity(bubble);
-        }
     }
     
 }
