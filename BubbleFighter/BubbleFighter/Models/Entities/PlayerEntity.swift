@@ -12,12 +12,12 @@ import GameplayKit
 
 public class PlayerEntity: CharacterEntity {
     
+    public let playerComponent = PlayerComponent();
+    
     override init() {
         super.init()
         
-
-        
-        
+        addComponent(playerComponent);
     }
     
     required public init?(coder aDecoder: NSCoder) {

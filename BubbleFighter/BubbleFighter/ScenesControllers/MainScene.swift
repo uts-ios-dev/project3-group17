@@ -40,7 +40,16 @@ public class MainScene: BaseScene {
         mainPlayer.node.zPosition = 10;
         mainCamera.zPosition = 15;
         mainCamera.position = mainPlayer.node.position;
-
+        
+        let inputs = InputManager.getInstance();
+        
+        if inputs.getKeyClick(InputKey.attack) {
+            let bubble = BubbleEntity("Bubble");
+            bubble.node.zPosition = 5;
+            bubble.node.position = mainPlayer.node.position;
+            bubble.node.size = CGSize(width: mainPlayer.node.size.width, height: mainPlayer.node.size.width);
+            addEntity(bubble);
+        }
     }
     
 }

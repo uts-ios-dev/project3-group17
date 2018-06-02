@@ -12,6 +12,9 @@
 		8A6873EB20C190A8006B8F91 /* InputsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6873EA20C190A8006B8F91 /* InputsManager.swift */; };
 		8A6873ED20C19133006B8F91 /* InputStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6873EC20C19133006B8F91 /* InputStates.swift */; };
 		8A6873EF20C1A1F4006B8F91 /* InputKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6873EE20C1A1F4006B8F91 /* InputKey.swift */; };
+		8A6873F320C26E89006B8F91 /* Bubbles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A6873F220C26E89006B8F91 /* Bubbles.xcassets */; };
+		8A6873F520C26FD8006B8F91 /* BubbleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6873F420C26FD8006B8F91 /* BubbleEntity.swift */; };
+		8A6873F720C27C4B006B8F91 /* BubbleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6873F620C27C4B006B8F91 /* BubbleComponent.swift */; };
 		8ADFB46420BAE01D00902571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADFB46320BAE01D00902571 /* AppDelegate.swift */; };
 		8ADFB46620BAE01D00902571 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB46520BAE01D00902571 /* GameScene.sks */; };
 		8ADFB46820BAE01D00902571 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB46720BAE01D00902571 /* Actions.sks */; };
@@ -25,7 +28,6 @@
 		8ADFB49C20BAE1FB00902571 /* TestScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB49B20BAE1FB00902571 /* TestScene.sks */; };
 		8ADFB4A020BAE79B00902571 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB49E20BAE79B00902571 /* TileSet.sks */; };
 		8ADFB4A120BAE79B00902571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB49F20BAE79B00902571 /* Assets.xcassets */; };
-		8AE609D720C03C160043484D /* GameControlEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE609D620C03C160043484D /* GameControlEntity.swift */; };
 		F34A144C20C137D000FD3E82 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A144B20C137D000FD3E82 /* Walk.swift */; };
 		F34A144E20C1393B00FD3E82 /* Idle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A144D20C1393B00FD3E82 /* Idle.swift */; };
 		F34A145020C13A1B00FD3E82 /* Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A144F20C13A1B00FD3E82 /* Directions.swift */; };
@@ -61,6 +63,9 @@
 		8A6873EA20C190A8006B8F91 /* InputsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputsManager.swift; sourceTree = "<group>"; };
 		8A6873EC20C19133006B8F91 /* InputStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputStates.swift; sourceTree = "<group>"; };
 		8A6873EE20C1A1F4006B8F91 /* InputKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputKey.swift; sourceTree = "<group>"; };
+		8A6873F220C26E89006B8F91 /* Bubbles.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Bubbles.xcassets; sourceTree = "<group>"; };
+		8A6873F420C26FD8006B8F91 /* BubbleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleEntity.swift; sourceTree = "<group>"; };
+		8A6873F620C27C4B006B8F91 /* BubbleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleComponent.swift; sourceTree = "<group>"; };
 		8ADFB46020BAE01D00902571 /* BubbleFighter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleFighter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ADFB46320BAE01D00902571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ADFB46520BAE01D00902571 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -80,7 +85,6 @@
 		8ADFB49B20BAE1FB00902571 /* TestScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TestScene.sks; sourceTree = "<group>"; };
 		8ADFB49E20BAE79B00902571 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		8ADFB49F20BAE79B00902571 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8AE609D620C03C160043484D /* GameControlEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControlEntity.swift; sourceTree = "<group>"; };
 		F34A144B20C137D000FD3E82 /* Walk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walk.swift; sourceTree = "<group>"; };
 		F34A144D20C1393B00FD3E82 /* Idle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Idle.swift; sourceTree = "<group>"; };
 		F34A144F20C13A1B00FD3E82 /* Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Directions.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 				F3FB506A20BBD57300BD0F68 /* CharacterComponent.swift */,
 				F3FB506C20BBD78500BD0F68 /* CharacterAnimationsManager.swift */,
 				F34A145320C13DFE00FD3E82 /* PlayerComponent.swift */,
+				8A6873F620C27C4B006B8F91 /* BubbleComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -132,8 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				8A29DB2C20BC22230033F93F /* CharacterEntity.swift */,
-				8AE609D620C03C160043484D /* GameControlEntity.swift */,
 				F34A145120C13D4600FD3E82 /* PlayerEntity.swift */,
+				8A6873F420C26FD8006B8F91 /* BubbleEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 			children = (
 				8ADFB49D20BAE73F00902571 /* TileSets */,
 				F3FB506420BBCCDC00BD0F68 /* Characters.xcassets */,
+				8A6873F220C26E89006B8F91 /* Bubbles.xcassets */,
 			);
 			path = Res;
 			sourceTree = "<group>";
@@ -376,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ADFB4A020BAE79B00902571 /* TileSet.sks in Resources */,
+				8A6873F320C26E89006B8F91 /* Bubbles.xcassets in Resources */,
 				8ADFB46F20BAE01D00902571 /* Main.storyboard in Resources */,
 				8ADFB46620BAE01D00902571 /* GameScene.sks in Resources */,
 				F3FB506520BBCCDC00BD0F68 /* Characters.xcassets in Resources */,
@@ -414,8 +421,8 @@
 				8A29DB2D20BC22230033F93F /* CharacterEntity.swift in Sources */,
 				8A6873ED20C19133006B8F91 /* InputStates.swift in Sources */,
 				F34A145620C1483100FD3E82 /* BaseScene.swift in Sources */,
+				8A6873F720C27C4B006B8F91 /* BubbleComponent.swift in Sources */,
 				F34A145220C13D4600FD3E82 /* PlayerEntity.swift in Sources */,
-				8AE609D720C03C160043484D /* GameControlEntity.swift in Sources */,
 				F34A144C20C137D000FD3E82 /* Walk.swift in Sources */,
 				8A02214920BAF77700569943 /* MainScene.swift in Sources */,
 				F34A145020C13A1B00FD3E82 /* Directions.swift in Sources */,
@@ -423,6 +430,7 @@
 				F34A145420C13DFE00FD3E82 /* PlayerComponent.swift in Sources */,
 				8A6873EB20C190A8006B8F91 /* InputsManager.swift in Sources */,
 				F34A144E20C1393B00FD3E82 /* Idle.swift in Sources */,
+				8A6873F520C26FD8006B8F91 /* BubbleEntity.swift in Sources */,
 				8ADFB46C20BAE01D00902571 /* GameViewController.swift in Sources */,
 				8A6873EF20C1A1F4006B8F91 /* InputKey.swift in Sources */,
 				8ADFB46420BAE01D00902571 /* AppDelegate.swift in Sources */,

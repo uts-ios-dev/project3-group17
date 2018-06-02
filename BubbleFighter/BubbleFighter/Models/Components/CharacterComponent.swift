@@ -13,18 +13,19 @@ import GameplayKit
 public class CharacterComponent : GKComponent {
     
     private var _animationManager : CharacterAnimationManager!;
-    private var actionStateMachine : GKStateMachine!
+    private var _actionStateMachine : GKStateMachine!
     
-    private var _direction = Directions.down {
-        willSet {
-            self._lastDirection = self._direction;
-        }
-    }
     private var _lastDirection = Directions.up;
     
-    public var animationManager : CharacterAnimationManager { return self._animationManager };
+    public var direction = Directions.down {
+        willSet {
+            self._lastDirection = self.direction;
+        }
+    }
     
-    public var direction : Directions { return self._direction };
+    public var actionStateMachine : GKStateMachine { return self._actionStateMachine };
+    
+    public var animationManager : CharacterAnimationManager { return self._animationManager };
     
     public var lastDirection : Directions { return self._lastDirection };
     
@@ -34,7 +35,7 @@ public class CharacterComponent : GKComponent {
         super.init()
         
         self._animationManager = CharacterAnimationManager(self);
-        self.actionStateMachine = GKStateMachine(states: loadActionStateMachine());
+        self._actionStateMachine = GKStateMachine(states: loadActionStateMachine());
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -53,30 +54,7 @@ public class CharacterComponent : GKComponent {
     
     public override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds);
-        
-        let input = InputManager.getInstance();
-        
-        if input.getKeyDown(InputKey.left) {
-            self._direction = Directions.left;
-            self.actionStateMachine.enter(Walk.self);
-        }
-        else if input.getKeyDown(InputKey.right) {
-            self._direction = Directions.right;
-            self.actionStateMachine.enter(Walk.self);
-        }
-        else if input.getKeyDown(InputKey.up) {
-            self._direction = Directions.up;
-            self.actionStateMachine.enter(Walk.self);
-        }
-        else if input.getKeyDown(InputKey.down) {
-            self._direction = Directions.down;
-            self.actionStateMachine.enter(Walk.self);
-        }
-        else {
-            self.actionStateMachine.enter(Idle.self);
-        }
-        
-        
+
         actionStateMachine.update(deltaTime: seconds);
     }
 }
