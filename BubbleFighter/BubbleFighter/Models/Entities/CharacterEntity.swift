@@ -25,8 +25,23 @@ public class CharacterEntity : GKEntity {
         self.addComponent(self.characterComponent)
         self.addComponent(self.skNodeComponent)
         
-        self.node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: Configs.blockSize / 2, height: Configs.blockSize))
+        self.node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: Configs.blockSize, height: Configs.characterHalfHeight),
+                                              center: CGPoint(x: 0, y: Configs.characterQuarterHeight));
         self.node.physicsBody?.affectedByGravity = false
+        self.node.physicsBody?.allowsRotation = false;
+
+        self.node.physicsBody?.categoryBitMask = Configs.characterCategories[characterComponent.characterIndex];
+        self.node.physicsBody?.collisionBitMask = 0x00000000;
+        
+        for i in 0 ... Configs.newBubbleCategories.count - 1{
+            if i != characterComponent.characterIndex {
+                self.node.physicsBody?.collisionBitMask |= Configs.newBubbleCategories[i];
+            }
+        }
+ 
+        for bubbleCategory in Configs.bubbleCategories {
+            self.node.physicsBody?.collisionBitMask |= bubbleCategory;
+        }
     }
     
     public override func update(deltaTime seconds: TimeInterval) {

@@ -19,6 +19,7 @@ public class PlayerEntity: CharacterEntity {
         
         addComponent(playerComponent);
         
+       
     }
     
     required public init?(coder aDecoder: NSCoder) {

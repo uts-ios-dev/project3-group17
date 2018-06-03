@@ -26,6 +26,12 @@ public class BubbleEntity: GKEntity {
         
         addComponent(self.skNodeComponent);
         addComponent(self.bubbleComponent);
+        
+        self.node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: Configs.blockSize, height: Configs.characterHalfHeight),
+                                              center: CGPoint(x: 0, y: Configs.characterQuarterHeight))
+        self.node.physicsBody?.allowsRotation = false;
+        self.node.physicsBody?.affectedByGravity = false;
+        self.node.physicsBody?.isDynamic = false;
     }
     
     required public init?(coder aDecoder: NSCoder) {
