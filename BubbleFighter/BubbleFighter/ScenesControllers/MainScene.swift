@@ -13,6 +13,8 @@ import GameplayKit
 public class MainScene: BaseScene {
     
     private var mainPlayer : PlayerEntity!;
+    private var aiPlayer : AIEntity!;
+    
     private var mainCamera : SKCameraNode = SKCameraNode();
     
     public var buffItems : [BuffComponent] = [];
@@ -57,9 +59,19 @@ public class MainScene: BaseScene {
     {
         mainPlayer = PlayerEntity();
         mainPlayer.characterComponent.setTextureAltas("t");
-        mainPlayer.node.position = CGPoint(x: -50, y: 0);
+        mainPlayer.characterComponent.characterIndex = 0;
+        mainPlayer.node.position = CGPoint(x: -352, y: -64);
+        mainPlayer.configurePhysics();
         
         addEntity(mainPlayer);
+        
+        aiPlayer = AIEntity();
+        aiPlayer.characterComponent.setTextureAltas("p");
+        aiPlayer.characterComponent.characterIndex = 1;
+        aiPlayer.node.position = CGPoint(x: -352, y: 64);
+        aiPlayer.configurePhysics();
+        
+        addEntity(aiPlayer);
     }
     
     public override func update(_ currentTime: TimeInterval) {

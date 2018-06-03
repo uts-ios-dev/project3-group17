@@ -37,8 +37,8 @@ public class CharacterAnimationManager {
             let texture = altas.textureNamed(name)
             let nameParts = name.components(separatedBy: "_")
             
-            let partIndex0 = partOrder0.index(of: nameParts[0])
-            let partindex1 = partOrder1.index(of: nameParts[1])
+            let partIndex0 = partOrder0.index(of: nameParts[1])
+            let partindex1 = partOrder1.index(of: nameParts[2])
             
             animations[partIndex0!][partindex1!].append(texture);
         }
