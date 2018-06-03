@@ -88,7 +88,7 @@ public class MainScene: BaseScene {
         aiPlayer = AIEntity();
         aiPlayer.characterComponent.setTextureAltas("p");
         aiPlayer.characterComponent.characterIndex = 1;
-        aiPlayer.node.position = CGPoint(x: 352, y: -64);
+        aiPlayer.node.position = CGPoint(x: -352, y: 64);
         aiPlayer.configurePhysics();
         aiPlayer.agent.behavior = GKBehavior(goals: self.aiGeols);
         

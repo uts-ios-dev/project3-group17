@@ -47,6 +47,31 @@ public class AIComponent: GKComponent, GKAgentDelegate {
         
         character.node.position.x = CGFloat(agent2D.position.x);
         character.node.position.y = CGFloat(agent2D.position.y);
+        
+        if (agent2D.rotation < 1.57) {
+            character.direction = Directions.right;
+        }
+        else if (agent2D.rotation < 3.14) {
+            character.direction = Directions.up;
+        }
+        else if (agent2D.rotation < 4.71) {
+            character.direction = Directions.left;
+        }
+        else
+        {
+            character.direction = Directions.down;
+        }
+        
+        print(agent2D.velocity);
+        
+        if agent2D.velocity.x != 0 || agent2D.velocity.y != 0 {
+            character.actionStateMachine.enter(Walk.self);
+        }
+        else {
+            character.actionStateMachine.enter(Idle.self);
+        }
+        
+        
     }
     
     

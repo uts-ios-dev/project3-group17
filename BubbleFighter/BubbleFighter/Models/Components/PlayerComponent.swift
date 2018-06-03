@@ -29,22 +29,27 @@ public class PlayerComponent: GKComponent {
         if input.getKeyDown(InputKey.left) {
             character.direction = Directions.left;
             character.actionStateMachine.enter(Walk.self);
+            character.node.position.x -= CGFloat(character.walkSpeed * seconds as Double);
         }
         else if input.getKeyDown(InputKey.right) {
             character.direction = Directions.right;
             character.actionStateMachine.enter(Walk.self);
+            character.node.position.x += CGFloat(character.walkSpeed * seconds as Double);
         }
         else if input.getKeyDown(InputKey.up) {
             character.direction = Directions.up;
             character.actionStateMachine.enter(Walk.self);
+            character.node.position.y += CGFloat(character.walkSpeed * seconds as Double);
         }
         else if input.getKeyDown(InputKey.down) {
             character.direction = Directions.down;
             character.actionStateMachine.enter(Walk.self);
+            character.node.position.y -= CGFloat(character.walkSpeed * seconds as Double);
         }
         else {
             character.actionStateMachine.enter(Idle.self);
         }
+        
         
         if input.getKeyClick(InputKey.attack) {
             character.placeBubble();

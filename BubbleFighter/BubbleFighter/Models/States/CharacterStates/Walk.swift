@@ -29,22 +29,6 @@ public class Walk: CharacterState {
         character.node.run(SKAction.repeatForever(SKAction.animate(with: animations, timePerFrame: 0.1)));
     }
     
-    public override func update(deltaTime seconds: TimeInterval) {
-        
-        if direction == Directions.left {
-            character.node.position.x -= CGFloat(walkSpeed * seconds as Double);
-        }
-        else if direction == Directions.right {
-            character.node.position.x += CGFloat(walkSpeed * seconds as Double);
-        }
-        else if direction == Directions.up {
-            character.node.position.y += CGFloat(walkSpeed * seconds as Double);
-        }
-        else if direction == Directions.down {
-            character.node.position.y -= CGFloat(walkSpeed * seconds as Double);
-        }
-    }
-    
     public override func willExit(to nextState: GKState) {
         //character.node.removeAllActions();
     }

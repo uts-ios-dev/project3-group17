@@ -17,7 +17,8 @@ public class AIEntity: CharacterEntity {
         super.init()
         
         addComponent(AIComponent());
-        
+        //agent.speed = Float(characterComponent.walkSpeed);
+        //agent.delegate = skNodeComponent;
     }
     
     required public init?(coder aDecoder: NSCoder) {

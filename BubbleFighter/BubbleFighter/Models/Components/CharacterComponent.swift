@@ -40,6 +40,8 @@ public class CharacterComponent : GKComponent {
     
     public var node : SKSpriteNode { return (entity! as! CharacterEntity).node };
     
+    public var agent : GKAgent { return (entity! as! CharacterEntity).agent};
+    
     public override init() {
         super.init()
         
@@ -146,6 +148,8 @@ public class CharacterComponent : GKComponent {
     
     public func hitByBubble() {
         actionStateMachine.enter(Dying.self);
+        agent.behavior = nil;
+        agent.delegate = nil;
     }
     
     public func killed() {
