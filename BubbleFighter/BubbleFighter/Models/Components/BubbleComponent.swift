@@ -224,8 +224,8 @@ public class BubbleComponent: GKComponent {
         let thresholdX = CGFloat(Configs.blockSize);
         let thresholdY = CGFloat(Configs.blockSize);
 
-        let dx = node.position.x - self.node.position.x;
-        let dy = node.position.y - self.node.position.y;
+        let dx = round(node.position.x - self.node.position.x);
+        let dy = round(node.position.y - self.node.position.y);
             
         if abs(dx) < thresholdX {
             if (dy > 0 && dy <= upRange) || abs(dy) <= downRange {
