@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-public class BubbleEntity: GKEntity {
+public class BubbleEntity: AgentEntity {
 
     public let skNodeComponent = GKSKNodeComponent(node: SKSpriteNode());
     public var bubbleComponent : BubbleComponent!;
@@ -31,6 +31,8 @@ public class BubbleEntity: GKEntity {
         self.node.size = CGSize(width: Configs.blockSize, height: Configs.blockSize);
         
         self.configurePhysics();
+        
+        self.agent.speed = 0;
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -43,6 +45,12 @@ public class BubbleEntity: GKEntity {
         self.node.physicsBody?.allowsRotation = false;
         self.node.physicsBody?.affectedByGravity = false;
         self.node.physicsBody?.isDynamic = false;
+    }
+    
+    public override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds);
+        
+        agent.position = vector_float2(Float(self.node.position.x), Float(self.node.position.y));
     }
     
 }

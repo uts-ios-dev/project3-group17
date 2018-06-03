@@ -15,7 +15,11 @@ public class MainScene: BaseScene {
     private var mainPlayer : PlayerEntity!;
     private var aiPlayer : AIEntity!;
     
+    private var obstacles : [GKObstacle]!;
+    
     private var mainCamera : SKCameraNode = SKCameraNode();
+    
+    public var aiGeols : [GKGoal] = [];
     
     public var buffItems : [BuffComponent] = [];
     
@@ -43,6 +47,18 @@ public class MainScene: BaseScene {
         
         return results;
     }
+    
+    public var hardWalls : [HardWallComponent] {
+        var results : [HardWallComponent] = [];
+        
+        for child in children {
+            if let wall = child.entity?.component(ofType: HardWallComponent.self) {
+                results.append(wall);
+            }
+        }
+        
+        return results;
+    }
 
     override public func sceneDidLoad() {
         
@@ -50,6 +66,7 @@ public class MainScene: BaseScene {
         
         self.camera = self.mainCamera;
     }
+    
     
     public func mapDidLoad() {
         self.loadPlayers();
@@ -65,13 +82,36 @@ public class MainScene: BaseScene {
         
         addEntity(mainPlayer);
         
+        self.loadObstacles();
+        self.loadDefaultAiGoals();
+        
         aiPlayer = AIEntity();
         aiPlayer.characterComponent.setTextureAltas("p");
         aiPlayer.characterComponent.characterIndex = 1;
-        aiPlayer.node.position = CGPoint(x: -352, y: 64);
+        aiPlayer.node.position = CGPoint(x: 352, y: -64);
         aiPlayer.configurePhysics();
+        aiPlayer.agent.behavior = GKBehavior(goals: self.aiGeols);
         
         addEntity(aiPlayer);
+    }
+    
+    private func loadObstacles() {
+        
+        let hardWalls = self.hardWalls;
+        var hardWallNodes : [SKNode] = [];
+        
+        for wall in hardWalls {
+            if let node = wall.entity?.component(ofType: GKSKNodeComponent.self)?.node {
+                hardWallNodes.append(node);
+            }
+        }
+        
+        self.obstacles = SKNode.obstacles(fromNodeBounds: hardWallNodes);
+    }
+    
+    private func loadDefaultAiGoals() {
+        aiGeols.append(GKGoal(toAvoid: self.obstacles, maxPredictionTime: 0.5));
+        aiGeols.append(GKGoal(toSeekAgent: mainPlayer.agent));
     }
     
     public override func update(_ currentTime: TimeInterval) {
@@ -80,8 +120,6 @@ public class MainScene: BaseScene {
         mainPlayer.node.zPosition = 10;
         mainCamera.zPosition = 15;
         mainCamera.position = mainPlayer.node.position;
-        
-        
     }
     
     public func addBuffItem (_ item : BuffComponent) {
@@ -94,6 +132,11 @@ public class MainScene: BaseScene {
             buffItems.remove(at: index);
             removeEnitty(item.entity!);
         }
+    }
+    
+    public func addGoal (_ goal : GKGoal)
+    {
+        aiGeols.append(goal);
     }
     
 }

@@ -16,6 +16,8 @@ public class CharacterComponent : GKComponent {
     public var energyLevel : Int = 1;
     public var useableBubbleLimit : Int = 1;
     
+    public var walkSpeed : Double = Double(Configs.blockSize);
+    
     private var _lastBubbles : [BubbleEntity] = [];
     
     private var _animationManager : CharacterAnimationManager!;
@@ -149,6 +151,4 @@ public class CharacterComponent : GKComponent {
     public func killed() {
         actionStateMachine.enter(Dead.self);
     }
-    
-    
 }

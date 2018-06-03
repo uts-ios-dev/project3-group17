@@ -30,6 +30,11 @@ public class SoftWallComponent: GKComponent {
         
         if let item = getResult(items) {
             let buffEntity = GKEntity();
+            let agent : GKAgent2D = GKAgent2D();
+            
+            buffEntity.addComponent(agent);
+            agent.position = vector_float2(Float(position.x), Float(position.y));
+            agent.speed = 0;
             
             buffEntity.addComponent(item);
             item.start();

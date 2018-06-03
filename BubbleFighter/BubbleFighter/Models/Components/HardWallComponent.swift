@@ -11,6 +11,5 @@ import GameplayKit
 import SpriteKit
 
 public class HardWallComponent: GKComponent {
-
     
 }

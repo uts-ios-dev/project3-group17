@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-public class CharacterEntity : GKEntity {
+public class CharacterEntity : AgentEntity {
     
     public let characterComponent = CharacterComponent()
     public let skNodeComponent = GKSKNodeComponent(node: SKSpriteNode())
@@ -52,7 +52,8 @@ public class CharacterEntity : GKEntity {
     public override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds);
         
-        
+        agent.position = vector_float2(Float(self.node.position.x), Float(self.node.position.y));
+        agent.speed = Float(characterComponent.walkSpeed);
     }
     
     required public init?(coder aDecoder: NSCoder) {

@@ -28,6 +28,7 @@
 		8A68741720C40FE6006B8F91 /* EnergyPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A68741620C40FE6006B8F91 /* EnergyPill.swift */; };
 		8A68741920C417DB006B8F91 /* BubblePill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A68741820C417DB006B8F91 /* BubblePill.swift */; };
 		8A68741B20C426A9006B8F91 /* AIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A68741A20C426A9006B8F91 /* AIComponent.swift */; };
+		8A68741D20C44528006B8F91 /* AgentEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A68741C20C44528006B8F91 /* AgentEntity.swift */; };
 		8ADFB46420BAE01D00902571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADFB46320BAE01D00902571 /* AppDelegate.swift */; };
 		8ADFB46620BAE01D00902571 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB46520BAE01D00902571 /* GameScene.sks */; };
 		8ADFB46820BAE01D00902571 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB46720BAE01D00902571 /* Actions.sks */; };
@@ -92,6 +93,7 @@
 		8A68741620C40FE6006B8F91 /* EnergyPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyPill.swift; sourceTree = "<group>"; };
 		8A68741820C417DB006B8F91 /* BubblePill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblePill.swift; sourceTree = "<group>"; };
 		8A68741A20C426A9006B8F91 /* AIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIComponent.swift; sourceTree = "<group>"; };
+		8A68741C20C44528006B8F91 /* AgentEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentEntity.swift; sourceTree = "<group>"; };
 		8ADFB46020BAE01D00902571 /* BubbleFighter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleFighter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ADFB46320BAE01D00902571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ADFB46520BAE01D00902571 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				F34A145120C13D4600FD3E82 /* PlayerEntity.swift */,
 				8A6873F420C26FD8006B8F91 /* BubbleEntity.swift */,
 				8A68740D20C3EC82006B8F91 /* AIEntity.swift */,
+				8A68741C20C44528006B8F91 /* AgentEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				8A6873F520C26FD8006B8F91 /* BubbleEntity.swift in Sources */,
 				8A68741B20C426A9006B8F91 /* AIComponent.swift in Sources */,
 				8ADFB46C20BAE01D00902571 /* GameViewController.swift in Sources */,
+				8A68741D20C44528006B8F91 /* AgentEntity.swift in Sources */,
 				8A6873F920C2A50A006B8F91 /* Configs.swift in Sources */,
 				8A6873EF20C1A1F4006B8F91 /* InputKey.swift in Sources */,
 				8ADFB46420BAE01D00902571 /* AppDelegate.swift in Sources */,

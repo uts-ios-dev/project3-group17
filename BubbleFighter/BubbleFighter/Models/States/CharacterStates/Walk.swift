@@ -12,7 +12,7 @@ import GameplayKit
 
 public class Walk: CharacterState {
     
-    private let walkSpeed : Double = Double(Configs.blockSize);
+    private var walkSpeed : Double { return character.walkSpeed };
     
     public override func didEnter(from previousState: GKState?) {
         
