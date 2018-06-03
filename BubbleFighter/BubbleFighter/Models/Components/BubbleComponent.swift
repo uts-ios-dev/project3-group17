@@ -228,12 +228,12 @@ public class BubbleComponent: GKComponent {
         let dy = node.position.y - self.node.position.y;
             
         if abs(dx) < thresholdX {
-            if (dy > 0 && dy < upRange) || abs(dy) < downRange {
+            if (dy > 0 && dy <= upRange) || abs(dy) <= downRange {
                 return true;
             }
         }
         else if abs(dy) < thresholdY {
-            if (dx > 0 && dx < rightRange) || abs(dx) < leftRange {
+            if (dx > 0 && dx <= rightRange) || abs(dx) <= leftRange {
                 return true;
             }
         }
