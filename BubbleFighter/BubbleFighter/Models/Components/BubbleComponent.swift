@@ -70,10 +70,10 @@ public class BubbleComponent: GKComponent {
         
         let (upRangeLimit, downRangeLimit, rightRangeLimit, leftRangeLimit) = getExplosionLimits(range: explosionRange);
         
-        print(upRangeLimit);
-        print(downRangeLimit);
-        print(leftRangeLimit);
-        print(rightRangeLimit);
+        self.hitBuffItems(upRange: upRangeLimit,
+                          downRange: downRangeLimit,
+                          rightRange: rightRangeLimit,
+                          leftRange: leftRangeLimit);
         
         self.hitCharacters(upRange: upRangeLimit,
                            downRange: downRangeLimit,
@@ -84,6 +84,8 @@ public class BubbleComponent: GKComponent {
                       downRange: downRangeLimit,
                       rightRange: rightRangeLimit,
                       leftRange: leftRangeLimit);
+        
+        
         
         //Show particles
         if let particle = SKEmitterNode(fileNamed: Configs.bubbleExplosionFileName) {
@@ -206,7 +208,6 @@ public class BubbleComponent: GKComponent {
     }
     
     private func hitWalls(upRange : CGFloat, downRange : CGFloat, rightRange : CGFloat, leftRange : CGFloat) {
-        
         let walls = mainScene.softWalls;
         
         for wall in walls {
@@ -215,6 +216,17 @@ public class BubbleComponent: GKComponent {
                               downRange: downRange, rightRange: rightRange, leftRange: leftRange)) {
                     wall.hitByBubble();
                 }
+            }
+        }
+    }
+    
+    private func hitBuffItems (upRange : CGFloat, downRange : CGFloat, rightRange : CGFloat, leftRange : CGFloat) {
+        let items = mainScene.buffItems;
+        
+        for item in items {
+            if (isHitWith(node: item.node, upRange: upRange,
+                          downRange: downRange, rightRange: rightRange, leftRange: leftRange)) {
+                item.hitByBubble();
             }
         }
     }

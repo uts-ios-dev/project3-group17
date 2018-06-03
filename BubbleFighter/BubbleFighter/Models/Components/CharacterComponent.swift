@@ -65,6 +65,20 @@ public class CharacterComponent : GKComponent {
         actionStateMachine.update(deltaTime: seconds);
         
         self.configureLastBubblesCollision();
+        self.buffItemDetect();
+    }
+    
+    private func buffItemDetect() {
+        let items = mainScene.buffItems;
+        
+        for item in items {
+            let dx = item.node.position.x - node.position.x;
+            let dy = item.node.position.y - node.position.y;
+            
+            if abs(dx) <= Configs.blockSize && abs(dy) <= Configs.blockSize {
+                item.hitByCharacter(character: self);
+            }
+        }
     }
     
     public func placeBubble () {

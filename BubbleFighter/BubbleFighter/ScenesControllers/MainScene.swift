@@ -15,6 +15,8 @@ public class MainScene: BaseScene {
     private var mainPlayer : PlayerEntity!;
     private var mainCamera : SKCameraNode = SKCameraNode();
     
+    public var buffItems : [BuffComponent] = [];
+    
     //Improve the performance use a cached in future
     public var characters : [CharacterComponent] {
         var results : [CharacterComponent] = [];
@@ -66,6 +68,18 @@ public class MainScene: BaseScene {
         mainCamera.position = mainPlayer.node.position;
         
         
+    }
+    
+    public func addBuffItem (_ item : BuffComponent) {
+        buffItems.append(item);
+        addEntity(item.entity!);
+    }
+    
+    public func removeBuffItem (_ item : BuffComponent) {
+        if let index = buffItems.index(of: item) {
+            buffItems.remove(at: index);
+            removeEnitty(item.entity!);
+        }
     }
     
 }
