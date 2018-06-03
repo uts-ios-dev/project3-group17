@@ -17,12 +17,23 @@ public class MainScene: BaseScene {
     
     //Improve the performance use a cached in future
     public var characters : [CharacterComponent] {
-        
         var results : [CharacterComponent] = [];
         
         for child in children {
             if let character = child.entity?.component(ofType: CharacterComponent.self) {
                 results.append(character);
+            }
+        }
+        
+        return results;
+    }
+    
+    public var softWalls : [SoftWallComponent] {
+        var results : [SoftWallComponent] = [];
+        
+        for child in children {
+            if let wall = child.entity?.component(ofType: SoftWallComponent.self) {
+                results.append(wall);
             }
         }
         

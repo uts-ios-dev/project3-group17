@@ -11,5 +11,18 @@ import SpriteKit
 import GameplayKit
 
 public class SoftWallComponent: GKComponent {
-
+    public var node : SKNode? {
+        return entity?.component(ofType: GKSKNodeComponent.self)?.node;
+    }
+    
+    public func hitByBubble() {
+        
+        let position = node!.position;
+        
+        let scene = node!.scene! as! MainScene;
+        
+        scene.removeEnitty(entity!);
+        
+        
+    }
 }

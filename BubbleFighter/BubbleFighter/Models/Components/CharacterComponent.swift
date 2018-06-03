@@ -77,7 +77,10 @@ public class CharacterComponent : GKComponent {
         
         let bubble = BubbleEntity();
         
-        bubble.node.position = CGPoint(x: round(self.node.position.x), y: round(self.node.position.y));
+        let x = round(self.node.position.x / Configs.blockSize) * Configs.blockSize;
+        let y = round(self.node.position.y / Configs.blockSize) * Configs.blockSize;
+        
+        bubble.node.position = CGPoint(x: x, y: y);
         bubble.bubbleComponent.setTexture("Bubble");
         bubble.bubbleComponent.energyLevel = self.energyLevel;
         bubble.bubbleComponent.explodedCallback = self.onBubbleExploded;
@@ -90,7 +93,7 @@ public class CharacterComponent : GKComponent {
     
     private func configureNewBubbleCollision(_ bubble : BubbleEntity) {
         bubble.node.physicsBody?.categoryBitMask = Configs.newBubbleCategories[characterIndex];
-        bubble.node.physicsBody?.collisionBitMask = 0x00000000;
+        bubble.node.physicsBody?.collisionBitMask = Configs.nothingCollision;
         
         for i in 0...Configs.characterCategories.count - 1 {
             
@@ -121,7 +124,6 @@ public class CharacterComponent : GKComponent {
     }
     
     private func onBubbleExploded (bubble : BubbleEntity) {
-        
         useableBubbleLimit += 1;
         mainScene.removeEnitty(bubble);
     }

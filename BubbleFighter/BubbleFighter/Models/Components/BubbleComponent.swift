@@ -66,7 +66,7 @@ public class BubbleComponent: GKComponent {
     
     public func explosion() {
     
-        let explosionRange = CGFloat(self.energyLevel * Configs.blockSize);
+        let explosionRange = CGFloat(self.energyLevel) * Configs.blockSize;
         
         let (upRangeLimit, downRangeLimit, rightRangeLimit, leftRangeLimit) = getExplosionLimits(range: explosionRange);
         
@@ -79,6 +79,11 @@ public class BubbleComponent: GKComponent {
                            downRange: downRangeLimit,
                            rightRange: rightRangeLimit,
                            leftRange: leftRangeLimit);
+        
+        self.hitWalls(upRange: upRangeLimit,
+                      downRange: downRangeLimit,
+                      rightRange: rightRangeLimit,
+                      leftRange: leftRangeLimit);
         
         //Show particles
         if let particle = SKEmitterNode(fileNamed: Configs.bubbleExplosionFileName) {
@@ -191,24 +196,48 @@ public class BubbleComponent: GKComponent {
         
         let characters = mainScene.characters;
         
-        let thresholdX = CGFloat(Configs.blockSize);
-        let thresholdY = CGFloat(Configs.blockSize);
-        
         for character in characters {
             
-            let dx = character.node.position.x - self.node.position.x;
-            let dy = character.node.position.y - self.node.position.y;
-            
-            if abs(dx) < thresholdX {
-                if (dy > 0 && dy < upRange) || abs(dy) < downRange {
-                    character.hitByBubble();
-                }
+            if (isHitWith(node: character.node, upRange: upRange,
+                          downRange: downRange, rightRange: rightRange, leftRange: leftRange)) {
+                character.hitByBubble();
             }
-            else if abs(dy) < thresholdY {
-                if (dx > 0 && dx < rightRange) || abs(dx) < leftRange {
-                    character.hitByBubble();
+        }
+    }
+    
+    private func hitWalls(upRange : CGFloat, downRange : CGFloat, rightRange : CGFloat, leftRange : CGFloat) {
+        
+        let walls = mainScene.softWalls;
+        
+        for wall in walls {
+            if let node = wall.node {
+                if (isHitWith(node: node, upRange: upRange,
+                              downRange: downRange, rightRange: rightRange, leftRange: leftRange)) {
+                    wall.hitByBubble();
                 }
             }
         }
+    }
+    
+    private func isHitWith(node : SKNode, upRange : CGFloat, downRange : CGFloat, rightRange : CGFloat, leftRange : CGFloat) -> Bool {
+        
+        let thresholdX = CGFloat(Configs.blockSize);
+        let thresholdY = CGFloat(Configs.blockSize);
+
+        let dx = node.position.x - self.node.position.x;
+        let dy = node.position.y - self.node.position.y;
+            
+        if abs(dx) < thresholdX {
+            if (dy > 0 && dy < upRange) || abs(dy) < downRange {
+                return true;
+            }
+        }
+        else if abs(dy) < thresholdY {
+            if (dx > 0 && dx < rightRange) || abs(dx) < leftRange {
+                return true;
+            }
+        }
+        
+        return false;
     }
 }

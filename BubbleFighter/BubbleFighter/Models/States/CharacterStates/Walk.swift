@@ -46,6 +46,6 @@ public class Walk: CharacterState {
     }
     
     public override func willExit(to nextState: GKState) {
-        character.node.removeAllActions();
+        //character.node.removeAllActions();
     }
 }

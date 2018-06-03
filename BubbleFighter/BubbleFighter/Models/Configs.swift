@@ -7,16 +7,17 @@
 //
 
 import Foundation
+import UIKit;
 
 public class Configs {
     
-    public static let blockSize : Int  = 32;
+    public static let blockSize : CGFloat  = 32;
     
-    public static let characterHeight : Int = 48;
+    public static let characterHeight : CGFloat = 48;
     
-    public static let characterHalfHeight : Int = 24;
+    public static let characterHalfHeight : CGFloat = 24;
     
-    public static let characterQuarterHeight : Int = 12;
+    public static let characterQuarterHeight : CGFloat = 12;
 
     //From 1 to 10
     public static let characterCategories : [UInt32] = [0x00000001, 0x00000002, 0x00000004, 0x00000008];
