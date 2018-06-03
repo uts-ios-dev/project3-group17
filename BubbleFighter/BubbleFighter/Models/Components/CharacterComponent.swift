@@ -33,6 +33,8 @@ public class CharacterComponent : GKComponent {
     
     public var lastDirection : Directions { return self._lastDirection };
     
+    public var mainScene : MainScene { return self.node.scene! as! MainScene };
+    
     public var node : SKSpriteNode { return (entity! as! CharacterEntity).node };
     
     public override init() {
@@ -61,6 +63,34 @@ public class CharacterComponent : GKComponent {
 
         actionStateMachine.update(deltaTime: seconds);
         
+        self.configureLastBubblesCollision();
+    }
+    
+    public func placeBubble () {
+        let bubble = BubbleEntity();
+        
+        bubble.node.position = CGPoint(x: round(self.node.position.x), y: round(self.node.position.y));
+        bubble.bubbleComponent.setTexture("Bubble");
+        
+        self.configureNewBubbleCollision(bubble);
+        
+        self.mainScene.addEntity(bubble);
+        self._lastBubbles.append(bubble);
+    }
+    
+    private func configureNewBubbleCollision(_ bubble : BubbleEntity) {
+        bubble.node.physicsBody?.categoryBitMask = Configs.newBubbleCategories[characterIndex];
+        bubble.node.physicsBody?.collisionBitMask = 0x00000000;
+        
+        for i in 0...Configs.characterCategories.count - 1 {
+            
+            if i != characterIndex {
+                bubble.node.physicsBody?.collisionBitMask |= Configs.characterCategories[i];
+            }
+        }
+    }
+    
+    private func configureLastBubblesCollision() {
         let characterPosition = self.node.position;
         let threshold1 = CGFloat(Configs.blockSize) * 0.5 + 2;
         let threshold2 = CGFloat(Configs.blockSize) + 1;
@@ -80,26 +110,5 @@ public class CharacterComponent : GKComponent {
         }
     }
     
-    public func placeBubble () {
-        let bubble = BubbleEntity();
-        bubble.node.zPosition = 5;
-        bubble.node.position = self.node.position;
-        bubble.node.size = CGSize(width: self.node.size.width, height: self.node.size.width);
-        bubble.node.anchorPoint = CGPoint(x: 0.5, y: 0);
-        bubble.bubbleComponent.setTexture("Bubble");
-        
-        bubble.node.physicsBody?.categoryBitMask = Configs.newBubbleCategories[characterIndex];
-        bubble.node.physicsBody?.collisionBitMask = 0x00000000;
-        
-        for i in 0...Configs.characterCategories.count - 1 {
-            
-            if i != characterIndex {
-                bubble.node.physicsBody?.collisionBitMask |= Configs.characterCategories[i];
-            }
-        }
-        
-        (self.node.scene! as! MainScene).addEntity(bubble);
-        
-        self._lastBubbles.append(bubble);
-    }
+    
 }

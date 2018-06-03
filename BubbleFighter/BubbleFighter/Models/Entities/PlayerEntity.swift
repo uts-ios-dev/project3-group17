@@ -18,8 +18,6 @@ public class PlayerEntity: CharacterEntity {
         super.init()
         
         addComponent(playerComponent);
-        
-       
     }
     
     required public init?(coder aDecoder: NSCoder) {

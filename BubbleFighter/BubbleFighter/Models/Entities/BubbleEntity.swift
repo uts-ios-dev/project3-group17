@@ -27,15 +27,23 @@ public class BubbleEntity: GKEntity {
         addComponent(self.skNodeComponent);
         addComponent(self.bubbleComponent);
         
-        self.node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: Configs.blockSize, height: Configs.characterHalfHeight),
-                                              center: CGPoint(x: 0, y: Configs.characterQuarterHeight))
-        self.node.physicsBody?.allowsRotation = false;
-        self.node.physicsBody?.affectedByGravity = false;
-        self.node.physicsBody?.isDynamic = false;
+        self.node.zPosition = 5;
+        self.node.size = CGSize(width: Configs.blockSize, height: Configs.blockSize);
+        self.node.anchorPoint = CGPoint(x: 0.5, y: 0);
+        
+        self.configurePhysics();
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configurePhysics() {
+        self.node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: Configs.blockSize, height: Configs.characterHalfHeight),
+                                                center: CGPoint(x: 0, y: Configs.characterQuarterHeight))
+        self.node.physicsBody?.allowsRotation = false;
+        self.node.physicsBody?.affectedByGravity = false;
+        self.node.physicsBody?.isDynamic = false;
     }
     
 }

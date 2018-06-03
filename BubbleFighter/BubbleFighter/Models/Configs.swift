@@ -17,14 +17,7 @@ public class Configs {
     public static let characterHalfHeight : Int = 24;
     
     public static let characterQuarterHeight : Int = 12;
-    
-    public static let character1Category = UInt32(1);       //0x00000001
-    public static let character2Category = UInt32(2);       //0x00000002
-    
-    public static let newBubble1Category = UInt32(1024);    //0x00000400
-    
-    public static let bubble1Category = UInt32(1048576);    //0x00100000
-    
+
     //From 1 to 10
     public static let characterCategories : [UInt32] = [0x00000001, 0x00000002, 0x00000004, 0x00000008];
     

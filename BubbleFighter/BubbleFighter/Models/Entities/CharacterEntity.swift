@@ -25,11 +25,18 @@ public class CharacterEntity : GKEntity {
         self.addComponent(self.characterComponent)
         self.addComponent(self.skNodeComponent)
         
+        self.node.size = CGSize(width: Configs.blockSize, height: Configs.characterHeight);
+        self.node.anchorPoint = CGPoint(x: 0.5, y: 0)
+        
+        self.configurePhysics();
+    }
+    
+    private func configurePhysics() {
         self.node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: Configs.blockSize, height: Configs.characterHalfHeight),
                                               center: CGPoint(x: 0, y: Configs.characterQuarterHeight));
         self.node.physicsBody?.affectedByGravity = false
         self.node.physicsBody?.allowsRotation = false;
-
+        
         self.node.physicsBody?.categoryBitMask = Configs.characterCategories[characterComponent.characterIndex];
         self.node.physicsBody?.collisionBitMask = 0x00000000;
         
@@ -38,7 +45,7 @@ public class CharacterEntity : GKEntity {
                 self.node.physicsBody?.collisionBitMask |= Configs.newBubbleCategories[i];
             }
         }
- 
+        
         for bubbleCategory in Configs.bubbleCategories {
             self.node.physicsBody?.collisionBitMask |= bubbleCategory;
         }
