@@ -14,6 +14,20 @@ public class MainScene: BaseScene {
     
     private var mainPlayer : PlayerEntity!;
     private var mainCamera : SKCameraNode = SKCameraNode();
+    
+    //Improve the performance use a cached in future
+    public var characters : [CharacterComponent] {
+        
+        var results : [CharacterComponent] = [];
+        
+        for child in children {
+            if let character = child.entity?.component(ofType: CharacterComponent.self) {
+                results.append(character);
+            }
+        }
+        
+        return results;
+    }
 
     override public func sceneDidLoad() {
         

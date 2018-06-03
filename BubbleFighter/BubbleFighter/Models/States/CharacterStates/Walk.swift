@@ -44,4 +44,8 @@ public class Walk: CharacterState {
             character.node.position.y -= CGFloat(walkSpeed * seconds as Double);
         }
     }
+    
+    public override func willExit(to nextState: GKState) {
+        character.node.removeAllActions();
+    }
 }

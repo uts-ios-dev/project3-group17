@@ -56,7 +56,7 @@ public class CharacterComponent : GKComponent {
     
     public func loadActionStateMachine() -> [CharacterState]
     {
-        return [Walk(self), Idle(self)]
+        return [Walk(self), Idle(self), Dying(self), Dead(self)];
     }
     
     public override func update(deltaTime seconds: TimeInterval) {
@@ -127,8 +127,11 @@ public class CharacterComponent : GKComponent {
     }
     
     public func hitByBubble() {
-        
         actionStateMachine.enter(Dying.self);
+    }
+    
+    public func killed() {
+        actionStateMachine.enter(Dead.self);
     }
     
     

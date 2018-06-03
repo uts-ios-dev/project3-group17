@@ -30,7 +30,7 @@ public class BubbleComponent: GKComponent {
     }
     
     public func setTexture(_ altasName : String) {
-        let animations = loadBubbleTextures(altasName);
+        let animations = BubbleComponent.loadBubbleTextures(altasName);
         
         let scaleAnimations = SKAction.sequence([SKAction.scaleX(to: 0.9, y: 0.75, duration: 0.5),
                                                  SKAction.scaleX(to: 1.0, y: 1.0, duration: 0.5)]);
@@ -40,7 +40,7 @@ public class BubbleComponent: GKComponent {
         self.node.run(SKAction.repeatForever(scaleAnimations));
     }
     
-    private func loadBubbleTextures (_ altasName : String) -> [SKTexture] {
+    public class func loadBubbleTextures (_ altasName : String) -> [SKTexture] {
         
         let altas = SKTextureAtlas(named: altasName);
         var count = 0;
@@ -74,6 +74,11 @@ public class BubbleComponent: GKComponent {
         print(downRangeLimit);
         print(leftRangeLimit);
         print(rightRangeLimit);
+        
+        self.hitCharacters(upRange: upRangeLimit,
+                           downRange: downRangeLimit,
+                           rightRange: rightRangeLimit,
+                           leftRange: leftRangeLimit);
         
         //Show particles
         if let particle = SKEmitterNode(fileNamed: Configs.bubbleExplosionFileName) {
@@ -131,6 +136,10 @@ public class BubbleComponent: GKComponent {
                 continue;
             }
             
+            guard let _ = child.entity?.component(ofType: HardWallComponent.self) else {
+                continue;
+            }
+            
             if let spriteNode = child as? SKSpriteNode {
                 
                 let dx = child.position.x - self.node.position.x;
@@ -176,5 +185,30 @@ public class BubbleComponent: GKComponent {
         }
         
         return (upRangeLimit, downRangeLimit, rightRangeLimit, leftRangeLimit);
+    }
+    
+    private func hitCharacters(upRange : CGFloat, downRange : CGFloat, rightRange : CGFloat, leftRange : CGFloat) {
+        
+        let characters = mainScene.characters;
+        
+        let thresholdX = CGFloat(Configs.blockSize);
+        let thresholdY = CGFloat(Configs.blockSize);
+        
+        for character in characters {
+            
+            let dx = character.node.position.x - self.node.position.x;
+            let dy = character.node.position.y - self.node.position.y;
+            
+            if abs(dx) < thresholdX {
+                if (dy > 0 && dy < upRange) || abs(dy) < downRange {
+                    character.hitByBubble();
+                }
+            }
+            else if abs(dy) < thresholdY {
+                if (dx > 0 && dx < rightRange) || abs(dx) < leftRange {
+                    character.hitByBubble();
+                }
+            }
+        }
     }
 }

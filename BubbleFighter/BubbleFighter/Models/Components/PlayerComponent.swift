@@ -19,7 +19,8 @@ public class PlayerComponent: GKComponent {
         
         let character = (entity! as! PlayerEntity).characterComponent;
         
-        if character.actionStateMachine.currentState is Dying {
+        if character.actionStateMachine.currentState is Dying ||
+           character.actionStateMachine.currentState is Dead {
             return;
         }
         
