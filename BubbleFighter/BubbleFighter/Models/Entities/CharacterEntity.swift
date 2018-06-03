@@ -26,14 +26,14 @@ public class CharacterEntity : GKEntity {
         self.addComponent(self.skNodeComponent)
         
         self.node.size = CGSize(width: Configs.blockSize, height: Configs.characterHeight);
-        self.node.anchorPoint = CGPoint(x: 0.5, y: 0)
+        self.node.anchorPoint = CGPoint(x: 0.5, y: 0.25)
         
         self.configurePhysics();
     }
     
     private func configurePhysics() {
         self.node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: Configs.blockSize, height: Configs.characterHalfHeight),
-                                              center: CGPoint(x: 0, y: Configs.characterQuarterHeight));
+                                              center: CGPoint(x: 0, y: 0));
         self.node.physicsBody?.affectedByGravity = false
         self.node.physicsBody?.allowsRotation = false;
         

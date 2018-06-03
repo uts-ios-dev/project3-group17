@@ -29,7 +29,6 @@ public class BubbleEntity: GKEntity {
         
         self.node.zPosition = 5;
         self.node.size = CGSize(width: Configs.blockSize, height: Configs.blockSize);
-        self.node.anchorPoint = CGPoint(x: 0.5, y: 0);
         
         self.configurePhysics();
     }
@@ -40,7 +39,7 @@ public class BubbleEntity: GKEntity {
     
     private func configurePhysics() {
         self.node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: Configs.blockSize, height: Configs.characterHalfHeight),
-                                                center: CGPoint(x: 0, y: Configs.characterQuarterHeight))
+                                                center: CGPoint(x: 0, y: 0))
         self.node.physicsBody?.allowsRotation = false;
         self.node.physicsBody?.affectedByGravity = false;
         self.node.physicsBody?.isDynamic = false;
