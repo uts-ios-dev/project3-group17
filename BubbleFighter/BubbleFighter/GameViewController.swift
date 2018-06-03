@@ -63,6 +63,8 @@ public class GameViewController: UIViewController {
                     view.showsNodeCount = true
                     
                 }
+                
+                sceneNode.mapDidLoad();
             }
         }
     }

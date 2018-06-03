@@ -47,7 +47,9 @@ public class MainScene: BaseScene {
         super.sceneDidLoad();
         
         self.camera = self.mainCamera;
-        
+    }
+    
+    public func mapDidLoad() {
         self.loadPlayers();
     }
     
