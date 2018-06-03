@@ -64,6 +64,23 @@ public class BubbleComponent: GKComponent {
     }
     
     public func explosion() {
+        //Show particles
+        if let particle = SKEmitterNode(fileNamed: Configs.bubbleExplosionFileName) {
+            particle.position = CGPoint(x: self.node.position.x, y: self.node.position.y + CGFloat(Configs.characterQuarterHeight));
+            particle.zPosition = 5;
+            
+            let action = SKAction.sequence([SKAction.wait(forDuration: 0.5), SKAction.removeFromParent()]);
+            
+            node.parent?.addChild(particle);
+            
+            let particleLeft = particle.copy() as! SKEmitterNode;
+            particleLeft.emissionAngle = CGFloat.pi;
+            
+            node.parent?.addChild(particleLeft);
+            
+            particle.run(action);
+            particleLeft.run(action);
+        }
         
         self.explodedCallback?(entity! as! BubbleEntity);
     }

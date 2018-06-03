@@ -27,4 +27,6 @@ public class Configs {
     //From 21-30
     public static let bubbleCategories : [UInt32] = [0x00100000, 0x00200000, 0x00400000, 0x00800000];
     
+    public static let bubbleExplosionFileName = "ExplosionParticle";
+    
 }
