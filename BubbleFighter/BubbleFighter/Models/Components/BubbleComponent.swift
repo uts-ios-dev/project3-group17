@@ -16,7 +16,7 @@ public class BubbleComponent: GKComponent {
     
     public var timeCountDown : Double  = 5;
     
-    public var energyLevel = 2;
+    public var energyLevel = 1;
     
     public var explodedCallback : ((BubbleEntity) -> ())?;
     
@@ -68,18 +68,28 @@ public class BubbleComponent: GKComponent {
         if let particle = SKEmitterNode(fileNamed: Configs.bubbleExplosionFileName) {
             particle.position = CGPoint(x: self.node.position.x, y: self.node.position.y + CGFloat(Configs.characterQuarterHeight));
             particle.zPosition = 5;
+            particle.particleLifetime = CGFloat(self.energyLevel * Configs.blockSize) / particle.particleSpeed;
             
             let action = SKAction.sequence([SKAction.wait(forDuration: 0.5), SKAction.removeFromParent()]);
-            
-            node.parent?.addChild(particle);
             
             let particleLeft = particle.copy() as! SKEmitterNode;
             particleLeft.emissionAngle = CGFloat.pi;
             
+            let particleTop = particle.copy() as! SKEmitterNode;
+            particleTop.emissionAngle = 1.5 * CGFloat.pi;
+            
+            let particleDown = particle.copy() as! SKEmitterNode;
+            particleDown.emissionAngle = 0.5 * CGFloat.pi;
+            
+            node.parent?.addChild(particle);
             node.parent?.addChild(particleLeft);
+            node.parent?.addChild(particleTop);
+            node.parent?.addChild(particleDown);
             
             particle.run(action);
             particleLeft.run(action);
+            particleTop.run(action);
+            particleDown.run(action);
         }
         
         self.explodedCallback?(entity! as! BubbleEntity);

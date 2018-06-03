@@ -13,7 +13,7 @@ import GameplayKit
 public class CharacterComponent : GKComponent {
     
     public var characterIndex : Int = 0;
-    public var energyLevel : Int = 2;
+    public var energyLevel : Int = 1;
     public var useableBubbleLimit : Int = 1;
     
     private var _lastBubbles : [BubbleEntity] = [];
