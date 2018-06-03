@@ -13,6 +13,8 @@ import GameplayKit
 public class CharacterComponent : GKComponent {
     
     public var characterIndex : Int = 0;
+    public var energyLevel : Int = 2;
+    public var useableBubbleLimit : Int = 1;
     
     private var _lastBubbles : [BubbleEntity] = [];
     
@@ -67,10 +69,19 @@ public class CharacterComponent : GKComponent {
     }
     
     public func placeBubble () {
+        
+        if (useableBubbleLimit <= 0) {
+            return;
+        }
+        
+        useableBubbleLimit -= 1;
+        
         let bubble = BubbleEntity();
         
         bubble.node.position = CGPoint(x: round(self.node.position.x), y: round(self.node.position.y));
         bubble.bubbleComponent.setTexture("Bubble");
+        bubble.bubbleComponent.energyLevel = self.energyLevel;
+        bubble.bubbleComponent.explodedCallback = self.onBubbleExploded;
         
         self.configureNewBubbleCollision(bubble);
         
@@ -92,7 +103,7 @@ public class CharacterComponent : GKComponent {
     
     private func configureLastBubblesCollision() {
         let characterPosition = self.node.position;
-        let threshold1 = CGFloat(Configs.blockSize) * 0.5 + 2;
+        let threshold1 = CGFloat(Configs.blockSize) * 0.5 + 5;
         let threshold2 = CGFloat(Configs.blockSize) + 1;
         
         for (i, _) in self._lastBubbles.enumerated().reversed() {
@@ -108,6 +119,12 @@ public class CharacterComponent : GKComponent {
                 self._lastBubbles.remove(at: i);
             }
         }
+    }
+    
+    private func onBubbleExploded (bubble : BubbleEntity) {
+        
+        useableBubbleLimit += 1;
+        mainScene.removeEnitty(bubble);
     }
     
     

@@ -14,6 +14,12 @@ public class BubbleComponent: GKComponent {
     
     public var node : SKSpriteNode { return (entity! as! BubbleEntity).node };
     
+    public var timeCountDown : Double  = 5;
+    
+    public var energyLevel = 2;
+    
+    public var explodedCallback : ((BubbleEntity) -> ())?;
+    
     public override init() {
         super.init();
     }
@@ -45,5 +51,20 @@ public class BubbleComponent: GKComponent {
         }
         
         return textures;
+    }
+    
+    public override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds);
+        
+        timeCountDown -= seconds;
+        
+        if timeCountDown <= 0 {
+            self.explosion();
+        }
+    }
+    
+    public func explosion() {
+        
+        self.explodedCallback?(entity! as! BubbleEntity);
     }
 }
