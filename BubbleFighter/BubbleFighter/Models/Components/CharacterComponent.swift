@@ -22,7 +22,6 @@ public class CharacterComponent : GKComponent {
     private var _actionStateMachine : GKStateMachine!
     
     private var _lastDirection = Directions.up;
-    
     public var direction = Directions.down {
         willSet {
             self._lastDirection = self.direction;
@@ -125,6 +124,11 @@ public class CharacterComponent : GKComponent {
         
         useableBubbleLimit += 1;
         mainScene.removeEnitty(bubble);
+    }
+    
+    public func hitByBubble() {
+        
+        actionStateMachine.enter(Dying.self);
     }
     
     

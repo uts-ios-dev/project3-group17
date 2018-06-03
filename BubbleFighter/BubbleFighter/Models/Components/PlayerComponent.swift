@@ -19,6 +19,10 @@ public class PlayerComponent: GKComponent {
         
         let character = (entity! as! PlayerEntity).characterComponent;
         
+        if character.actionStateMachine.currentState is Dying {
+            return;
+        }
+        
         let input = InputManager.getInstance();
         
         if input.getKeyDown(InputKey.left) {

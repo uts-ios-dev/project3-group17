@@ -68,69 +68,7 @@ public class BubbleComponent: GKComponent {
     
         let explosionRange = CGFloat(self.energyLevel * Configs.blockSize);
         
-        var leftRangeLimit = explosionRange;
-        var upRangeLimit = explosionRange;
-        var downRangeLimit = explosionRange;
-        var rightRangeLimit = explosionRange;
-        
-        let left = node.position.x - node.anchorPoint.x * node.size.width;
-        let right = node.position.x + (1 - node.anchorPoint.x) * node.size.width;
-        
-        let down = node.position.y - node.anchorPoint.y * node.size.height;
-        let top = node.position.y + (1 - node.anchorPoint.y) * node.size.height;
-        
-        //Detect for direction
-        let mainScene = self.mainScene;
-
-        for child in mainScene.children {
-            
-            if child == self.node {
-                continue;
-            }
-            
-            if let spriteNode = child as? SKSpriteNode {
-                
-                let dx = child.position.x - self.node.position.x;
-                let dy = child.position.y - self.node.position.y;
-                
-                let childLeft = spriteNode.position.x - spriteNode.anchorPoint.x * spriteNode.size.width;
-                let childRight = spriteNode.position.x + (1 - spriteNode.anchorPoint.x) * spriteNode.size.width;
-                
-                let childDown = spriteNode.position.y - spriteNode.anchorPoint.y * spriteNode.size.height;
-                let childTop = spriteNode.position.y + (1 - spriteNode.anchorPoint.y) * spriteNode.size.height;
-                
-                if  (childLeft  <= left && childRight   >= right) ||
-                    (childLeft  >= left && childLeft    <= right) ||
-                    (childRight >= left && childRight   <= right) ||
-                    (childLeft  >= left && childRight   <= right)
-                {
-                    let upRange = abs(childDown - top);
-                    let downRange = abs(childTop - down);
-                    
-                    if (dy > 0 && upRangeLimit > upRange) {
-                        upRangeLimit = upRange;
-                    }
-                    else if (downRangeLimit > downRange) {
-                        downRangeLimit = downRange;
-                    }
-                }
-                else if (childDown  <= down && childTop     >= top) ||
-                        (childDown  >= down && childDown    <= top) ||
-                        (childTop   >= down && childTop     <= top) ||
-                        (childDown  >= down && childTop     <= top)
-                {
-                    let leftRange = abs(childRight - left);
-                    let rightRange = abs(childLeft - right);
-                    
-                    if (dx > 0 && rightRangeLimit > rightRange) {
-                        rightRangeLimit = rightRange;
-                    }
-                    else if (leftRangeLimit > leftRange) {
-                        leftRangeLimit = leftRange;
-                    }
-                }
-            }
-        }
+        let (upRangeLimit, downRangeLimit, rightRangeLimit, leftRangeLimit) = getExplosionLimits(range: explosionRange);
         
         print(upRangeLimit);
         print(downRangeLimit);
@@ -169,5 +107,74 @@ public class BubbleComponent: GKComponent {
         }
         
         self.explodedCallback?(entity! as! BubbleEntity);
+    }
+    
+    //Up Down Right Left
+    private func getExplosionLimits (range : CGFloat) -> (CGFloat, CGFloat, CGFloat, CGFloat) {
+        var leftRangeLimit = range;
+        var upRangeLimit = range;
+        var downRangeLimit = range;
+        var rightRangeLimit = range;
+        
+        let left = node.position.x - node.anchorPoint.x * node.size.width;
+        let right = node.position.x + (1 - node.anchorPoint.x) * node.size.width;
+        
+        let down = node.position.y - node.anchorPoint.y * node.size.height;
+        let top = node.position.y + (1 - node.anchorPoint.y) * node.size.height;
+        
+        //Detect for direction
+        let mainScene = self.mainScene;
+        
+        for child in mainScene.children {
+            
+            if child == self.node {
+                continue;
+            }
+            
+            if let spriteNode = child as? SKSpriteNode {
+                
+                let dx = child.position.x - self.node.position.x;
+                let dy = child.position.y - self.node.position.y;
+                
+                let childLeft = spriteNode.position.x - spriteNode.anchorPoint.x * spriteNode.size.width;
+                let childRight = spriteNode.position.x + (1 - spriteNode.anchorPoint.x) * spriteNode.size.width;
+                
+                let childDown = spriteNode.position.y - spriteNode.anchorPoint.y * spriteNode.size.height;
+                let childTop = spriteNode.position.y + (1 - spriteNode.anchorPoint.y) * spriteNode.size.height;
+                
+                if  (childLeft  <= left && childRight   >= right) ||
+                    (childLeft  >= left && childLeft    <= right) ||
+                    (childRight >= left && childRight   <= right) ||
+                    (childLeft  >= left && childRight   <= right)
+                {
+                    let upRange = abs(childDown - top);
+                    let downRange = abs(childTop - down);
+                    
+                    if (dy > 0 && upRangeLimit > upRange) {
+                        upRangeLimit = upRange;
+                    }
+                    else if (downRangeLimit > downRange) {
+                        downRangeLimit = downRange;
+                    }
+                }
+                else if (childDown  <= down && childTop     >= top) ||
+                    (childDown  >= down && childDown    <= top) ||
+                    (childTop   >= down && childTop     <= top) ||
+                    (childDown  >= down && childTop     <= top)
+                {
+                    let leftRange = abs(childRight - left);
+                    let rightRange = abs(childLeft - right);
+                    
+                    if (dx > 0 && rightRangeLimit > rightRange) {
+                        rightRangeLimit = rightRange;
+                    }
+                    else if (leftRangeLimit > leftRange) {
+                        leftRangeLimit = leftRange;
+                    }
+                }
+            }
+        }
+        
+        return (upRangeLimit, downRangeLimit, rightRangeLimit, leftRangeLimit);
     }
 }

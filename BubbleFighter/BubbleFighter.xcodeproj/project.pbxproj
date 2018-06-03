@@ -18,6 +18,8 @@
 		8A6873F920C2A50A006B8F91 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6873F820C2A50A006B8F91 /* Configs.swift */; };
 		8A68740520C39DF7006B8F91 /* ExplosionParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8A68740320C39DF7006B8F91 /* ExplosionParticle.sks */; };
 		8A68740620C39DF7006B8F91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A68740420C39DF7006B8F91 /* Assets.xcassets */; };
+		8A68740820C3CF26006B8F91 /* Dying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A68740720C3CF26006B8F91 /* Dying.swift */; };
+		8A68740A20C3D15D006B8F91 /* HardWallComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A68740920C3D15D006B8F91 /* HardWallComponent.swift */; };
 		8ADFB46420BAE01D00902571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADFB46320BAE01D00902571 /* AppDelegate.swift */; };
 		8ADFB46620BAE01D00902571 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB46520BAE01D00902571 /* GameScene.sks */; };
 		8ADFB46820BAE01D00902571 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFB46720BAE01D00902571 /* Actions.sks */; };
@@ -72,6 +74,8 @@
 		8A6873F820C2A50A006B8F91 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		8A68740320C39DF7006B8F91 /* ExplosionParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ExplosionParticle.sks; sourceTree = "<group>"; };
 		8A68740420C39DF7006B8F91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8A68740720C3CF26006B8F91 /* Dying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dying.swift; sourceTree = "<group>"; };
+		8A68740920C3D15D006B8F91 /* HardWallComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardWallComponent.swift; sourceTree = "<group>"; };
 		8ADFB46020BAE01D00902571 /* BubbleFighter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleFighter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ADFB46320BAE01D00902571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ADFB46520BAE01D00902571 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				F3FB506C20BBD78500BD0F68 /* CharacterAnimationsManager.swift */,
 				F34A145320C13DFE00FD3E82 /* PlayerComponent.swift */,
 				8A6873F620C27C4B006B8F91 /* BubbleComponent.swift */,
+				8A68740920C3D15D006B8F91 /* HardWallComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 			children = (
 				F34A144B20C137D000FD3E82 /* Walk.swift */,
 				F34A144D20C1393B00FD3E82 /* Idle.swift */,
+				8A68740720C3CF26006B8F91 /* Dying.swift */,
 			);
 			path = CharacterStates;
 			sourceTree = "<group>";
@@ -441,12 +447,14 @@
 				8A6873ED20C19133006B8F91 /* InputStates.swift in Sources */,
 				F34A145620C1483100FD3E82 /* BaseScene.swift in Sources */,
 				8A6873F720C27C4B006B8F91 /* BubbleComponent.swift in Sources */,
+				8A68740820C3CF26006B8F91 /* Dying.swift in Sources */,
 				F34A145220C13D4600FD3E82 /* PlayerEntity.swift in Sources */,
 				F34A144C20C137D000FD3E82 /* Walk.swift in Sources */,
 				8A02214920BAF77700569943 /* MainScene.swift in Sources */,
 				F34A145020C13A1B00FD3E82 /* Directions.swift in Sources */,
 				F3FB506B20BBD57300BD0F68 /* CharacterComponent.swift in Sources */,
 				F34A145420C13DFE00FD3E82 /* PlayerComponent.swift in Sources */,
+				8A68740A20C3D15D006B8F91 /* HardWallComponent.swift in Sources */,
 				8A6873EB20C190A8006B8F91 /* InputsManager.swift in Sources */,
 				F34A144E20C1393B00FD3E82 /* Idle.swift in Sources */,
 				8A6873F520C26FD8006B8F91 /* BubbleEntity.swift in Sources */,
