@@ -13,7 +13,7 @@ import GameplayKit
 public class BubbleEntity: AgentEntity {
 
     public let skNodeComponent = GKSKNodeComponent(node: SKSpriteNode());
-    public var bubbleComponent : BubbleComponent!;
+    public var bubbleComponent : BubbleComponent = BubbleComponent();
     
     public var node : SKSpriteNode {
         return self.skNodeComponent.node as! SKSpriteNode
@@ -21,8 +21,6 @@ public class BubbleEntity: AgentEntity {
     
     public override init() {
         super.init();
-        
-        self.bubbleComponent = BubbleComponent();
         
         addComponent(self.skNodeComponent);
         addComponent(self.bubbleComponent);

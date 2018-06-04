@@ -117,7 +117,7 @@ public class MainScene: BaseScene {
             }
         }
         
-        self.obstacles = SKNode.obstacles(fromNodeBounds: hardWallNodes);
+        self.obstacles = SKNode.obstacles(fromNodePhysicsBodies: hardWallNodes);
     }
     
     private func loadDefaultAiGoals() {
