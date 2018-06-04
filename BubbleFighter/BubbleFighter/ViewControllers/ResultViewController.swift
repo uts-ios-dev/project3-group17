@@ -1,5 +1,5 @@
 //
-//  MenuViewController.swift
+//  ResultViewController.swift
 //  BubbleFighter
 //
 //  Created by Edward Huang on 2018/6/4.
@@ -8,21 +8,34 @@
 
 import UIKit
 
-class MenuViewController: SceneViewController {
+public class ResultViewController: UIViewController {
 
-    override func viewDidLoad() {
+    public var win : Bool = false;
+    
+    @IBOutlet weak var resultLabel: UILabel!
+    
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let _ = self.loadScene(sceneName: "MainMenuScene");
+        
+        if win {
+            resultLabel.text = "You Win ! :)"
+        }
+        else {
+            resultLabel.text = "You lose T_T"
+        }
     }
 
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func onClickedBackButton(_ sender: Any) {
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil);
+    }
+    
     /*
     // MARK: - Navigation
 

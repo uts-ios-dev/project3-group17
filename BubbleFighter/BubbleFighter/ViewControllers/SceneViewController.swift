@@ -23,8 +23,7 @@ public class SceneViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    public func loadScene (sceneName : String)
-    {
+    public func loadScene (sceneName : String) -> BaseScene? {
         if let scene = GKScene(fileNamed: sceneName) {
             
             // Get the SKScene from the loaded GKScene
@@ -53,8 +52,12 @@ public class SceneViewController: UIViewController {
                 }
                 
                 sceneNode.mapDidLoad();
+                
+                return sceneNode;
             }
         }
+        
+        return nil;
     }
 
     /*

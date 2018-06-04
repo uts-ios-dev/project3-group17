@@ -36,7 +36,7 @@ public class CharacterEntity : AgentEntity {
         self.node.physicsBody?.allowsRotation = false;
         
         self.node.physicsBody?.categoryBitMask = Configs.characterCategories[characterComponent.characterIndex];
-        self.node.physicsBody?.collisionBitMask = 0x00000000;
+        self.node.physicsBody?.collisionBitMask = Configs.nothingCollision;
         
         for i in 0 ... Configs.newBubbleCategories.count - 1{
             if i != characterComponent.characterIndex {

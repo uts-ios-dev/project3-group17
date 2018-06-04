@@ -24,7 +24,7 @@ public class GameViewController: SceneViewController {
     
     @IBOutlet weak var attackButton: UIButton!
     
-    
+    private var gameWin = false;
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,9 @@ public class GameViewController: SceneViewController {
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
         
-        self.loadScene(sceneName: "Level0Scene")
+        if let scene = self.loadScene(sceneName: "Level0Scene") as? MainScene {
+            scene.gameOverCallback = self.onGameOver;
+        }
     }
 
     override public var shouldAutorotate: Bool {
@@ -87,6 +89,22 @@ public class GameViewController: SceneViewController {
         case leftButton     : inputs.setKeyState(InputKey.left,     state: InputStates.Up);     break;
         case attackButton   : inputs.setKeyState(InputKey.attack,   state: InputStates.None);   break;
         default: fatalError("Button not found");
+        }
+    }
+    
+    func onGameOver (_ win : Bool) {
+
+        self.gameWin = win;
+        
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (timer) in
+            self.performSegue(withIdentifier: "showResult", sender: nil);
+        }
+    }
+    
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showResult" {
+            let resultViewController = segue.destination as! ResultViewController;
+            resultViewController.win = self.gameWin;
         }
     }
     

@@ -107,11 +107,51 @@
                         <outlet property="leftButton" destination="hKL-HX-3PT" id="rov-8g-zKN"/>
                         <outlet property="rightButton" destination="Ir2-u3-qPX" id="gEb-KN-ueF"/>
                         <outlet property="upButton" destination="xME-jU-3AZ" id="LLq-4n-yoB"/>
+                        <segue destination="Cbg-Zc-xPq" kind="presentation" identifier="showResult" id="W9W-Pr-oNY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="116" y="307"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="kcC-Cr-a85">
+            <objects>
+                <viewController id="Cbg-Zc-xPq" customClass="ResultViewController" customModule="BubbleFighter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iUt-7e-04a">
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You win" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjQ-Nq-hmQ" userLabel="resultLabel">
+                                <rect key="frame" x="0.0" y="98" width="736" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="64"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0u-Cr-Q3C">
+                                <rect key="frame" x="244" y="262" width="249" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.84628001799999997" green="0.62333439889999998" blue="0.84412774980000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickedBackButton:" destination="Cbg-Zc-xPq" eventType="touchUpInside" id="9j2-ot-isz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.76470588240000004" green="0.56470588239999997" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="wAD-h8-we2"/>
+                    </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="sjQ-Nq-hmQ" id="2K4-gs-KSY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YvQ-8R-k0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="884.51086956521749" y="305.79710144927537"/>
         </scene>
     </scenes>
     <resources>

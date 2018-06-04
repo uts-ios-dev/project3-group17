@@ -44,6 +44,8 @@
 		F319115620C4BB59006A60C5 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F319115520C4BB59006A60C5 /* MenuScene.swift */; };
 		F319115820C4BC0A006A60C5 /* BackgroundParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = F319115720C4BC0A006A60C5 /* BackgroundParticle.sks */; };
 		F319115A20C4BED2006A60C5 /* SmokeParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = F319115920C4BED2006A60C5 /* SmokeParticle.sks */; };
+		F319115D20C4C61D006A60C5 /* DismissControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F319115C20C4C61D006A60C5 /* DismissControllerSegue.swift */; };
+		F319115F20C4C6C6006A60C5 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F319115E20C4C6C6006A60C5 /* ResultViewController.swift */; };
 		F34A144C20C137D000FD3E82 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A144B20C137D000FD3E82 /* Walk.swift */; };
 		F34A144E20C1393B00FD3E82 /* Idle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A144D20C1393B00FD3E82 /* Idle.swift */; };
 		F34A145020C13A1B00FD3E82 /* Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A144F20C13A1B00FD3E82 /* Directions.swift */; };
@@ -118,6 +120,8 @@
 		F319115520C4BB59006A60C5 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		F319115720C4BC0A006A60C5 /* BackgroundParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundParticle.sks; sourceTree = "<group>"; };
 		F319115920C4BED2006A60C5 /* SmokeParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SmokeParticle.sks; sourceTree = "<group>"; };
+		F319115C20C4C61D006A60C5 /* DismissControllerSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissControllerSegue.swift; sourceTree = "<group>"; };
+		F319115E20C4C6C6006A60C5 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		F34A144B20C137D000FD3E82 /* Walk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walk.swift; sourceTree = "<group>"; };
 		F34A144D20C1393B00FD3E82 /* Idle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Idle.swift; sourceTree = "<group>"; };
 		F34A144F20C13A1B00FD3E82 /* Directions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Directions.swift; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 		8ADFB46220BAE01D00902571 /* BubbleFighter */ = {
 			isa = PBXGroup;
 			children = (
+				F319115B20C4C607006A60C5 /* Extensions */,
 				F380B81A20C4AF6F00D29EB9 /* ViewControllers */,
 				F3FB506920BBD55B00BD0F68 /* Models */,
 				F3A1C3C720BBB895002DE8A2 /* Res */,
@@ -297,6 +302,14 @@
 			path = TileSets;
 			sourceTree = "<group>";
 		};
+		F319115B20C4C607006A60C5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F319115C20C4C61D006A60C5 /* DismissControllerSegue.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F34A144A20C137A800FD3E82 /* CharacterStates */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +327,7 @@
 				8ADFB46B20BAE01D00902571 /* GameViewController.swift */,
 				F380B81B20C4AFD300D29EB9 /* MenuViewController.swift */,
 				F319115120C4B8A2006A60C5 /* SceneViewController.swift */,
+				F319115E20C4C6C6006A60C5 /* ResultViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -519,12 +533,14 @@
 				8A6873EB20C190A8006B8F91 /* InputsManager.swift in Sources */,
 				F34A144E20C1393B00FD3E82 /* Idle.swift in Sources */,
 				8A6873F520C26FD8006B8F91 /* BubbleEntity.swift in Sources */,
+				F319115F20C4C6C6006A60C5 /* ResultViewController.swift in Sources */,
 				8A68741B20C426A9006B8F91 /* AIComponent.swift in Sources */,
 				8ADFB46C20BAE01D00902571 /* GameViewController.swift in Sources */,
 				8A68741D20C44528006B8F91 /* AgentEntity.swift in Sources */,
 				F319115220C4B8A2006A60C5 /* SceneViewController.swift in Sources */,
 				8A6873F920C2A50A006B8F91 /* Configs.swift in Sources */,
 				8A6873EF20C1A1F4006B8F91 /* InputKey.swift in Sources */,
+				F319115D20C4C61D006A60C5 /* DismissControllerSegue.swift in Sources */,
 				8ADFB46420BAE01D00902571 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

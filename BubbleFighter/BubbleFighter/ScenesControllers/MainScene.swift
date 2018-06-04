@@ -19,9 +19,13 @@ public class MainScene: BaseScene {
     
     private var mainCamera : SKCameraNode = SKCameraNode();
     
+    private var isGameOver : Bool = false;
+    
     public var aiGeols : [GKGoal] = [];
     
     public var buffItems : [BuffComponent] = [];
+    
+    public var gameOverCallback : ((Bool) -> ())?;
     
     //Improve the performance use a cached in future
     public var characters : [CharacterComponent] {
@@ -120,6 +124,15 @@ public class MainScene: BaseScene {
         mainPlayer.node.zPosition = 10;
         mainCamera.zPosition = 15;
         mainCamera.position = mainPlayer.node.position;
+        
+        if !self.isGameOver {
+            if mainPlayer.characterComponent.actionStateMachine.currentState is Dead {
+                self.gameOver(false);
+            }
+            else if aiPlayer.characterComponent.actionStateMachine.currentState is Dead {
+                self.gameOver(true);
+            }
+        }
     }
     
     public func addBuffItem (_ item : BuffComponent) {
@@ -138,5 +151,12 @@ public class MainScene: BaseScene {
     {
         aiGeols.append(goal);
     }
+    
+    private func gameOver (_ win : Bool) {
+        self.isGameOver = true;
+        
+        self.gameOverCallback?(win);
+    }
+    
     
 }
