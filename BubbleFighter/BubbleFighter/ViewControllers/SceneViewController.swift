@@ -46,8 +46,8 @@ public class SceneViewController: UIViewController {
                     
                     view.ignoresSiblingOrder = true
                     
-                    view.showsFPS = true
-                    view.showsNodeCount = true
+                    //view.showsFPS = true
+                    //view.showsNodeCount = true
                     
                 }
                 

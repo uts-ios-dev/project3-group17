@@ -110,6 +110,13 @@ public class MainScene: BaseScene {
             }
         }
         
+        //Current implementation the AI will not break the soft wall
+        for wall in softWalls {
+            if let node = wall.entity?.component(ofType: GKSKNodeComponent.self)?.node {
+                hardWallNodes.append(node);
+            }
+        }
+        
         self.obstacles = SKNode.obstacles(fromNodeBounds: hardWallNodes);
     }
     

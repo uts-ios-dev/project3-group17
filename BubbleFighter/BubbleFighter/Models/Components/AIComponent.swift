@@ -38,57 +38,46 @@ public class AIComponent: GKComponent, GKAgentDelegate {
         agent2D.position.x = Float(character.node.position.x);
         agent2D.position.y = Float(character.node.position.y);
         
-        agent2D.speed = Float(character.walkSpeed);
+        agent2D.maxSpeed = Float(character.walkSpeed);
         
     }
     
     public func agentDidUpdate(_ agent: GKAgent) {
         let agent2D = agent as! GKAgent2D;
         
-        //character.node.position.x = CGFloat(agent2D.position.x);
-        //character.node.position.y = CGFloat(agent2D.position.y);
-        /*
         if (agent2D.rotation < 1.57) {
-            character.direction = Directions.right;
+            character.direction = Directions.down;
         }
         else if (agent2D.rotation < 3.14) {
-            character.direction = Directions.up;
+            character.direction = Directions.right;
         }
         else if (agent2D.rotation < 4.71) {
-            character.direction = Directions.left;
+            character.direction = Directions.up;
         }
         else
         {
-            character.direction = Directions.down;
+            character.direction = Directions.left;
         }
-        */
-        
-        if abs(agent2D.velocity.x) > abs(agent2D.velocity.y) {
-            if agent2D.velocity.x > 0 {
-                character.direction = Directions.right;
-            }
-            else {
-                character.direction = Directions.left;
-            }
-        }
-        else {
-            if agent2D.velocity.y > 0 {
-                character.direction = Directions.up;
-            }
-            else {
-                character.direction = Directions.down;
-            }
-        }
-        
-        
+ 
         if agent2D.velocity.x != 0 || agent2D.velocity.y != 0 {
             character.actionStateMachine.enter(Walk.self);
         }
         else {
             character.actionStateMachine.enter(Idle.self);
         }
+    }
+    
+    public override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds);
         
-        
+        if character.actionStateMachine.currentState is Walk {
+            switch character.direction {
+            case Directions.left: character.node.position.x -= CGFloat(character.walkSpeed * seconds as Double); break;
+            case Directions.right: character.node.position.x += CGFloat(character.walkSpeed * seconds as Double); break;
+            case Directions.up: character.node.position.y += CGFloat(character.walkSpeed * seconds as Double); break;
+            case Directions.down: character.node.position.y -= CGFloat(character.walkSpeed * seconds as Double); break;
+            }
+        }
     }
     
     
