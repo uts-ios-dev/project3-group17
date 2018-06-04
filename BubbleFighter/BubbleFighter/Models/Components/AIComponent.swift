@@ -45,9 +45,9 @@ public class AIComponent: GKComponent, GKAgentDelegate {
     public func agentDidUpdate(_ agent: GKAgent) {
         let agent2D = agent as! GKAgent2D;
         
-        character.node.position.x = CGFloat(agent2D.position.x);
-        character.node.position.y = CGFloat(agent2D.position.y);
-        
+        //character.node.position.x = CGFloat(agent2D.position.x);
+        //character.node.position.y = CGFloat(agent2D.position.y);
+        /*
         if (agent2D.rotation < 1.57) {
             character.direction = Directions.right;
         }
@@ -61,8 +61,25 @@ public class AIComponent: GKComponent, GKAgentDelegate {
         {
             character.direction = Directions.down;
         }
+        */
         
-        print(agent2D.velocity);
+        if abs(agent2D.velocity.x) > abs(agent2D.velocity.y) {
+            if agent2D.velocity.x > 0 {
+                character.direction = Directions.right;
+            }
+            else {
+                character.direction = Directions.left;
+            }
+        }
+        else {
+            if agent2D.velocity.y > 0 {
+                character.direction = Directions.up;
+            }
+            else {
+                character.direction = Directions.down;
+            }
+        }
+        
         
         if agent2D.velocity.x != 0 || agent2D.velocity.y != 0 {
             character.actionStateMachine.enter(Walk.self);

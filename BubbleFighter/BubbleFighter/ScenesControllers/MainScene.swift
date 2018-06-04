@@ -68,7 +68,7 @@ public class MainScene: BaseScene {
     }
     
     
-    public func mapDidLoad() {
+    public override func mapDidLoad() {
         self.loadPlayers();
     }
     

@@ -60,4 +60,7 @@ public class BaseScene: SKScene {
         
         self.lastUpdateTime = currentTime
     }
+    
+    public func mapDidLoad() {
+    }
 }
